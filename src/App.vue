@@ -1,17 +1,13 @@
 <template>
-  <HelloWorld />
+  <div id="app">
+    <nav class="text-center">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </nav>
+    <router-view/>
+  </div>
 </template>
 
-<script>
-import HelloWorld from "./components/HelloWorld.vue";
-
-export default {
-  components: {
-    HelloWorld
-  }
-};
-</script>
-
 <style>
-@import "./assets/css/bootstrap.min.css";
+@import url('./assets/css/bootstrap.min.css');
 </style>
