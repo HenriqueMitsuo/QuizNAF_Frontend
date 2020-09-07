@@ -1,7 +1,8 @@
 <template>
 <div class="app">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-blue-container">
     <div class="navbar-brand">NavBar</div>
+    <!-- Adicionar botão para abrir opções abaixo -->
     <span class="navbar-toggler-icon"></span>
     <div class="collapse navbar-collapse" id="navbarToggle">
           <ul class="navbar-nav">
@@ -35,4 +36,15 @@
 
 <style>
 @import url('./assets/css/bootstrap.min.css');
+
+/* Cores do container */
+.bg-blue{
+  background-color: #2b3c4d;
+}
+
+/* Cor do plano de fundo */
+.bg-blue-container{
+  background-color: #34495e;
+}
+
 </style>
