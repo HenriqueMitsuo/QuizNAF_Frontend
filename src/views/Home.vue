@@ -1,22 +1,20 @@
 <template>
-  <div class="app">
-    <div class="bg-blue px-3 pb-4">
-      <!-- px define padding left e right -->
-      <div class="container">
-        <!-- Linha do Tópico principal expandido -->
-        <TopicExpanded />
+  <div class="bg-blue px-3 pb-4">
+    <!-- px define padding left e right -->
+    <div class="container">
+      <!-- Linha do Tópico principal expandido -->
+      <TopicExpanded />
 
-        <!-- Linha para com dois Tópicos | pt-4 coloca um espaçamento do componente acima -->
-        <div class="row pt-4">
-          <Topic />
-          <Topic />
-        </div>
+      <!-- Linha para com dois Tópicos | pt-4 coloca um espaçamento do componente acima -->
+      <div class="row pt-4">
+        <Topic />
+        <Topic />
+      </div>
 
-        <!-- Quebra de linha -->
-        <div class="row pt-4">
-          <Topic />
-          <Topic />
-        </div>
+      <!-- Quebra de linha -->
+      <div class="row pt-4">
+        <Topic />
+        <Topic />
       </div>
     </div>
   </div>

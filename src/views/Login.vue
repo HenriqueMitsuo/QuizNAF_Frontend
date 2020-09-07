@@ -1,5 +1,14 @@
 <template>
-  <div class="text-center">
-    <h1>This is an Login page</h1>
+  <div class="bg-blue">
+    <LoginForm />
   </div>
 </template>
+
+<script>
+import LoginForm from "@/components/LoginForm.vue";
+export default {
+  components: {
+    LoginForm
+  }
+};
+</script>
