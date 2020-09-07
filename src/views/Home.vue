@@ -1,34 +1,39 @@
 <template>
-  <div class="bg-blue px-3 pb-4">
-    <!-- px define padding left e right -->
-    <div class="container">
-      <!-- Linha do Tópico principal expandido -->
-      <TopicExpanded />
+  <div class="app">
+    <NavBar />
+    <div class="bg-blue px-3 pb-4">
+      <!-- px define padding left e right -->
+      <div class="container">
+        <!-- Linha do Tópico principal expandido -->
+        <TopicExpanded />
 
-      <!-- Linha para com dois Tópicos | pt-4 coloca um espaçamento do componente acima -->
-      <div class="row pt-4">
-        <Topic />
-        <Topic />
-      </div>
+        <!-- Linha para com dois Tópicos | pt-4 coloca um espaçamento do componente acima -->
+        <div class="row pt-4">
+          <Topic />
+          <Topic />
+        </div>
 
-      <!-- Quebra de linha -->
-      <div class="row pt-4">
-        <Topic />
-        <Topic />
+        <!-- Quebra de linha -->
+        <div class="row pt-4">
+          <Topic />
+          <Topic />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import NavBar from "@/components/NavBar.vue";
 import TopicExpanded from "@/components/TopicExpanded.vue";
 import Topic from "@/components/Topic.vue";
 
 export default {
   components: {
+    NavBar,
     TopicExpanded,
-    Topic
-  }
+    Topic,
+  },
 };
 </script>
 
