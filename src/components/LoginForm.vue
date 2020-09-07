@@ -3,7 +3,7 @@
     <div class="row vh-100 justify-content-center align-items-center">
       <div class="col-12 pt-5">
         <form action method>
-          <img src="@/assets/person.png" class="mx-auto d-block" width="50%" />
+          <img src="@/assets/person.png" class="mx-auto d-block" width="30%" />
           <div class="input-group input-group-lg">
             <div class="input-group-prepend">
               <span class="input-group-text" style="background: transparent;">
@@ -62,7 +62,9 @@
             />
           </div>
           <div class="pt-4">
-            <button type="button" class="p-2 btn btn-success" style="width: 100%">ENTRAR</button>
+            <router-link to="/">
+              <button type="button" class="p-2 btn btn-success" style="width: 100%">ENTRAR</button>
+            </router-link>
           </div>
           <div class="pt-2 mb-5">
             <button type="button" class="p-2 btn btn-danger" style="width: 100%">REGISTRAR</button>

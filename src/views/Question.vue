@@ -1,13 +1,35 @@
 <template>
-    <NavBar />
+  <div class="app">
+    <QuestionBar />
+    <QuestionStatusBar />
+
+    <div class="bg-blue">
+      <div class="container">
+        <!-- Texto da questão -->
+        <QuestionText />
+        <QuestionAlternative />
+
+        <!-- Botão fora do wireframe -->
+        <div class="py-2 text-center">
+          <button class="btn btn-success p2">Conferir</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import NavBar from "@/components/NavBar.vue";
+import QuestionBar from "@/components/QuestionBar.vue";
+import QuestionStatusBar from "@/components/QuestionStatusBar.vue";
+import QuestionText from "@/components/QuestionText.vue";
+import QuestionAlternative from "@/components/QuestionAlternative.vue";
 
 export default {
-    components: {
-        NavBar
-    }
-}
+  components: {
+    QuestionBar,
+    QuestionStatusBar,
+    QuestionText,
+    QuestionAlternative,
+  },
+};
 </script>
