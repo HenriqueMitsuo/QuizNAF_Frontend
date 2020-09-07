@@ -32,6 +32,11 @@
               <router-link to="/Login">Login</router-link>
             </div>
           </li>
+          <li class="nav-item">
+            <div class="nav-link">
+              <router-link to="/Question">Question</router-link>
+            </div>
+          </li>
         </ul>
       </div>
     </nav>
@@ -46,7 +51,7 @@
     </nav>
     <router-view/>
   </div>
--->
+  -->
 </template>
 
 <style>
