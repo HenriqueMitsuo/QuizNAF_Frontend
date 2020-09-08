@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div class="col-12 p-5">
+    <div class="col-12 py-5">
       <p
         class="text-light text-center"
         style="font-size: 1.2rem"
