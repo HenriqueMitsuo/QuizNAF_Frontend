@@ -3,14 +3,14 @@
     <QuestionBar />
     <QuestionStatusBar />
 
-    <div class="bg-blue">
+    <div class="vh-100 bg-blue">
       <div class="container">
         <!-- Texto da questão -->
         <QuestionText />
         <QuestionAlternative />
 
         <!-- Botão fora do wireframe -->
-        <div class="py-2 text-center">
+        <div class="pt-2 text-center">
           <button class="btn btn-success p2">Conferir</button>
         </div>
       </div>

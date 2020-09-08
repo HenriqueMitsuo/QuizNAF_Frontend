@@ -1,5 +1,5 @@
 <template>
-  <div class="container fixed-bottom bg-danger">
+  <div class="fixed-bottom bg-danger">
     <div class="text-light text-center py-5">
       <svg
         width="2em"
