@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <QuestionBar />
-    <QuestionStatusBar />
+    <!-- <QuestionStatusBar /> -->
 
     <div class="vh-100 bg-blue">
       <div class="container">
@@ -20,14 +20,14 @@
 
 <script>
 import QuestionBar from "@/components/QuestionBar.vue";
-import QuestionStatusBar from "@/components/QuestionStatusBar.vue";
+// import QuestionStatusBar from "@/components/QuestionStatusBar.vue";
 import QuestionText from "@/components/QuestionText.vue";
 import QuestionAlternative from "@/components/QuestionAlternative.vue";
 
 export default {
   components: {
     QuestionBar,
-    QuestionStatusBar,
+    // QuestionStatusBar,
     QuestionText,
     QuestionAlternative,
   },

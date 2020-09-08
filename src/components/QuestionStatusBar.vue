@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar navbar-expand-md navbar-dark bg-blue-container">
+  <div class="sticky-top navbar navbar-expand-md navbar-dark bg-blue-container">
     <span class="navbar-brand abs">
       <svg
         width="1.2em"
