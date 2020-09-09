@@ -1,28 +1,22 @@
 <template>
   <div class="row">
     <div class="col-12 px-3">
-      <label>
-        <input type="radio" name="demo" class="card-input-element d-none" id="demo1" />
-        <div
-          class="card card-body bg-blue-container text-light d-flex flex-row justify-content-between align-items-center"
-        >Resposta 1</div>
-      </label>
-      <label class="mt-3">
-        <input type="radio" name="demo" class="card-input-element d-none" id="demo1" />
-        <div
-          class="card card-body bg-blue-container text-light d-flex flex-row justify-content-between align-items-center"
-        >Resposta 2</div>
-      </label>
-      <label class="mt-3">
-        <input type="radio" name="demo" class="card-input-element d-none" id="demo1" />
-        <div
-          class="card card-body bg-blue-container text-light d-flex flex-row justify-content-between align-items-center"
-        >Resposta 3</div>
+      <label v-for="question in questions" :key="question.id">
+        <input type="radio" name="demo" class="card-input-element d-none" id="question.id" />
+        <div class="card card-body bg-blue-container text-light d-flex flex-row justify-content-between align-items-center">
+          {{question.text}}
+        </div>
       </label>
     </div>
   </div>
 </template>
 
+<script>
+export default {
+  name: 'QuestionAlternative',
+  props: { questions: Array }
+};
+</script>
 
 <style>
 /* Código terceirizado para o radio button no card link https://jsfiddle.net/djibe89/at2cv9q1/ */
