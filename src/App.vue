@@ -2,21 +2,11 @@
   <div class="app">
     <router-view />
   </div>
-
-  <!--
-  <div id="app">
-    <nav class="text-center">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
-  </div>
-  -->
 </template>
 
 <style>
 /* Cores do container */
-.bg-blue {
+body {
   background-color: #2b3c4d !important;
 }
 

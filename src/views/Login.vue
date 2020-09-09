@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-blue">
+  <div>
     <LoginForm />
   </div>
 </template>
