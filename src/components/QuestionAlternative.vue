@@ -1,10 +1,10 @@
 <template>
   <div class="row">
     <div class="col-12 px-3">
-      <label v-for="question in questions" :key="question.id">
+      <label v-for="answer in questions[0].answers" :key="answer.id">
         <input type="radio" name="demo" class="card-input-element d-none" id="question.id" />
         <div class="card card-body bg-blue-container text-light d-flex flex-row justify-content-between align-items-center">
-          {{question.text}}
+          {{answer.text}}
         </div>
       </label>
     </div>
