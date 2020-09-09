@@ -10,7 +10,7 @@
 import Sidebar from '@/components/Sidebar';
 
 export default {
-    name: 'About Page',
+    name: 'About',
     components: {
         Sidebar
     }
