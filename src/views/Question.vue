@@ -13,7 +13,7 @@
           </div>
         </div>
 
-        <QuestionAlternative :questions="questions" />
+        <QuestionAlternative :questions="questions[0]" />
 
         <div class="pt-2 text-center">
           <button class="btn btn-success p2">Conferir</button>

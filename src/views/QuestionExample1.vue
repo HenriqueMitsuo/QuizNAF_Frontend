@@ -14,7 +14,7 @@
           </div>
         </div>
 
-        <QuestionAlternative :questions="questions"/>
+        <QuestionAlternative :questions="questions[0]"/>
 
         <!-- Botão fora do wireframe -->
         <div class="py-2 text-center">
