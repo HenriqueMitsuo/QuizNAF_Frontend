@@ -1,5 +1,5 @@
 <template>
-  <div class="col-6 pr-n3">
+  <div class="col-sm-3 mt-3">
     <div class="card bg-blue-container text-white">
       <img class="card-img-top rounded" src="@/assets/bg-prototype.png" />
       <div class="card-body">
@@ -17,9 +17,7 @@
               aria-valuemax="100"
             ></div>
           </div>
-          <div class="progress-value">
-            5/15
-          </div>
+          <div class="progress-value">5/15</div>
         </div>
       </div>
     </div>

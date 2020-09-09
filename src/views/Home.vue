@@ -8,17 +8,14 @@
         <!-- Linha do Tópico principal expandido -->
         <TopicExpanded />
 
-        <!-- Linha para com dois Tópicos | pt-4 coloca um espaçamento do componente acima -->
-        <div class="row pt-4">
+        <!-- Linha para Tópicos | mt-4 coloca um espaçamento do componente acima -->
+        <div class="row mt-4">
+          <Topic />
+          <Topic />
           <Topic />
           <Topic />
         </div>
 
-        <!-- Quebra de linha -->
-        <div class="row pt-4">
-          <Topic />
-          <Topic />
-        </div>
       </div>
     </div>
   </div>
