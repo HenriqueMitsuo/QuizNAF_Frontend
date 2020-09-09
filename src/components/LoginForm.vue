@@ -67,7 +67,9 @@
             </router-link>
           </div>
           <div class="pt-2 mb-5">
+            <router-link to="/Register">
             <button type="button" class="p-2 btn btn-danger" style="width: 100%">REGISTRAR</button>
+            </router-link>
           </div>
         </form>
       </div>
