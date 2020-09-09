@@ -25,14 +25,12 @@
 </template>
 
 <script>
-// import NavBar from "@/components/NavBar.vue";
 import Sidebar from "@/components/Sidebar.vue";
 import TopicExpanded from "@/components/TopicExpanded.vue";
 import Topic from "@/components/Topic.vue";
 
 export default {
   components: {
-    // NavBar,
     Sidebar,
     TopicExpanded,
     Topic,
@@ -55,23 +53,7 @@ export default {
 .progress-custom .progress-value {
   display: table-cell;
   width: 1%;
-  padding: 0 4px; /*optionally*/
+  padding: 0 4px;
 }
 </style>
 
-<!--
-<template>
-  <HelloWorld />
-</template>
-
-<script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
-export default {
-  components: {
-    HelloWorld
-  }
-};
-</script>
--->
