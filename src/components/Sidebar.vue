@@ -14,6 +14,10 @@
             </div>
 
             <div class="nav-link">
+                <router-link to="/About">About</router-link>
+            </div>
+
+            <div class="nav-link">
                 <router-link to="/Question">Question</router-link>
             </div>
 
