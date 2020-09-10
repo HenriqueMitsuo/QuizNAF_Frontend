@@ -20,17 +20,11 @@
         </div>
 
         <div class="pt-2 text-center">
-          <button class="btn btn-outline-success p2 mr-2" @click="validateQuestion('correct')">Correta</button>
-          <button class="btn btn-outline-danger p2" @click="validateQuestion('wrong')">Errada</button>
+          <button class="btn btn-outline-success p2 mr-2" @click="validateQuestion(true)">Correta</button>
+          <button class="btn btn-outline-danger p2" @click="validateQuestion(false)">Errada</button>
         </div>
 
-        <div class="pt-2 text-center">
-          
-        </div>
-
-        <BottomAlerts @close-alert="closeBottomAlert" :questionValidation="answerValidation" />
-
-        
+        <BottomAlerts @close-alert="closeBottomAlert" :questionValidation="answerValidation" />       
 
       </div>
     </div>
