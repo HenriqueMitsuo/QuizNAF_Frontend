@@ -18,10 +18,10 @@
 
         <!-- Botão fora do wireframe -->
         <div class="py-2 text-center">
-          <button class="btn btn-success p2">Conferir</button>
+          <button class="btn btn-success p2" @click="validateQuestion">Conferir</button>
         </div>
       </div>
-      <QuestionCorrect />
+      <QuestionCorrect :collapsed="collapsed" />
     </div>
   </div>
 </template>
@@ -47,8 +47,15 @@ export default {
             { id: 2, text: 'Sit amet requiescat in pace' },
             { id: 3, text: 'Dominicus supremus labutas requiescat' },
           ]
-        },    
-      ]
+        },
+           
+      ],
+      collapsed: true
+    }
+  },
+  methods: {
+    validateQuestion() {
+      this.collapsed = false;
     }
   }
 };
