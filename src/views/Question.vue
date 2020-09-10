@@ -28,7 +28,7 @@
           
         </div>
 
-        <BottomAlerts :questionValidation="answerValidation" />
+        <BottomAlerts @close-alert="closeBottomAlert" :questionValidation="answerValidation" />
 
         
 
@@ -66,6 +66,9 @@ export default {
   methods: {
     validateQuestion(val) {
       this.answerValidation = val;
+    },
+    closeBottomAlert() {
+      this.answerValidation = null;
     }
   }
 };
