@@ -58,10 +58,10 @@ export default {
     }
   },
   methods: {
-    validateQuestion(val) {
+    validateQuestion: function (val) {
       this.answerValidation = val;
     },
-    closeBottomAlert() {
+    closeBottomAlert: function () {
       this.answerValidation = null;
     }
   }

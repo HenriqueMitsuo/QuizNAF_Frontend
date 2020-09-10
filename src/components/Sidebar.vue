@@ -37,10 +37,10 @@ export default {
         }
     },
     methods: {
-        openNav() {
+        openNav: function() {
             this.collapsed = false;
         },
-        closeNav() {
+        closeNav: function() {
             this.collapsed = true;
         }
     }

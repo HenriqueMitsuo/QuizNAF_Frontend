@@ -30,7 +30,7 @@
 export default {
     props: ['questionValidation'],
     methods: {
-        nextQuestion() {
+        nextQuestion: function() {
             this.$emit("close-alert");
         }
     }
