@@ -1,6 +1,7 @@
 <template>
   <div class="app">
     <Sidebar />
+
     <!-- <NavBar /> -->
     <div class="bg-blue px-3 pb-4">
       <!-- px define padding left e right -->
@@ -15,9 +16,9 @@
           <Topic />
           <Topic />
         </div>
-
       </div>
     </div>
+    <AboutDialog />
   </div>
 </template>
 
@@ -25,12 +26,14 @@
 import Sidebar from "@/components/Sidebar.vue";
 import TopicExpanded from "@/components/TopicExpanded.vue";
 import Topic from "@/components/Topic.vue";
+import AboutDialog from "@/components/AboutDialog.vue";
 
 export default {
   components: {
     Sidebar,
     TopicExpanded,
     Topic,
+    AboutDialog,
   },
 };
 </script>

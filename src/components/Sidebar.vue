@@ -1,64 +1,69 @@
 <template>
-    <div>
-        <!-- Barra Superior -->
-        <div class="topbar">
-            <button class="openbtn" v-on:click="openNav">&#9776;</button>
-        </div>
-        
-        <!-- Menu -->
-        <div class="sidebar" :style="{ width: collapsed? '0px': '250px' }" >
-            <a href="javascript:void(0)" class="closebtn" v-on:click="closeNav">&times;</a>
-
-            <div class="nav-link">
-                <router-link to="/">Home</router-link>
-            </div>
-
-            <div class="nav-link">
-                <router-link to="/About">About</router-link>
-            </div>
-
-            <div class="nav-link">
-                <router-link to="/Question">Question</router-link>
-            </div>
-
-            <div class="nav-link" to="/Login">
-                <router-link to="/login">Sair</router-link>
-            </div>
-
-        </div>
+  <div>
+    <!-- Barra Superior -->
+    <div class="topbar">
+      <button class="openbtn" v-on:click="openNav">&#9776;</button>
     </div>
+
+    <!-- Menu -->
+    <div class="sidebar" :style="{ width: collapsed? '0px': '250px' }">
+      <a href="javascript:void(0)" class="closebtn" v-on:click="closeNav">&times;</a>
+
+      <div class="nav-link">
+        <router-link to="/">Home</router-link>
+      </div>
+
+      <div class="nav-link">
+        <!-- <router-link to="/About">About</router-link> -->
+        <a
+          v-on:click="closeNav"
+          class="text-light"
+          data-toggle="modal"
+          data-target="#exampleModalCenter"
+        >About</a>
+      </div>
+
+      <div class="nav-link">
+        <router-link to="/Question">Question</router-link>
+      </div>
+
+      <div class="nav-link" to="/Login">
+        <router-link to="/login">Sair</router-link>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-    data() {
-        return {
-            collapsed: true,
-        }
+  data() {
+    return {
+      collapsed: true,
+    };
+  },
+  methods: {
+    openNav: function () {
+      this.collapsed = false;
     },
-    methods: {
-        openNav: function() {
-            this.collapsed = false;
-        },
-        closeNav: function() {
-            this.collapsed = true;
-        }
-    }
-}
+    closeNav: function () {
+      this.collapsed = true;
+    },
+  },
+};
 </script>
 
 <style>
 .sidebar {
-  height: 100%; 
-  width: 0; 
+  height: 100%;
+  width: 0;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #2b3c4d; 
-  overflow-x: hidden; 
-  padding-top: 60px; 
-  transition: 0.5s; 
+  background-color: #2b3c4d;
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.5s;
 }
 
 .nav-link > a {
@@ -85,7 +90,7 @@ export default {
 }
 
 .topbar {
-    background-color: #34495e;
+  background-color: #34495e;
 }
 
 .openbtn {
@@ -98,7 +103,11 @@ export default {
 }
 
 @media screen and (max-height: 450px) {
-  .sidebar {padding-top: 15px;}
-  .sidebar a {font-size: 18px;}
-} 
+  .sidebar {
+    padding-top: 15px;
+  }
+  .sidebar a {
+    font-size: 18px;
+  }
+}
 </style>
