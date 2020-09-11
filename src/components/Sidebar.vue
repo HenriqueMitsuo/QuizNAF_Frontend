@@ -21,14 +21,6 @@
                 <router-link to="/Question">Question</router-link>
             </div>
 
-            <div class="nav-link">
-                <router-link to="/Question1">Correto</router-link>
-            </div>
-
-            <div class="nav-link">
-                <router-link to="/Question2">Errado</router-link>
-            </div>
-
             <div class="nav-link" to="/Login">
                 <router-link to="/login">Sair</router-link>
             </div>
@@ -45,10 +37,10 @@ export default {
         }
     },
     methods: {
-        openNav() {
+        openNav: function() {
             this.collapsed = false;
         },
-        closeNav() {
+        closeNav: function() {
             this.collapsed = true;
         }
     }

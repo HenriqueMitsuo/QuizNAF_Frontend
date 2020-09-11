@@ -66,9 +66,9 @@
               <button type="button" class="p-2 btn btn-success" style="width: 100%">ENTRAR</button>
             </router-link>
           </div>
-          <div class="pt-2 mb-5">
+          <div class="pt-2">
             <router-link to="/Register">
-            <button type="button" class="p-2 btn btn-danger" style="width: 100%">REGISTRAR</button>
+              <button type="button" class="p-2 btn btn-danger" style="width: 100%">REGISTRAR</button>
             </router-link>
           </div>
         </form>

@@ -19,6 +19,13 @@
           <button class="btn btn-success p2">Conferir</button>
         </div>
 
+        <div class="pt-2 text-center">
+          <button class="btn btn-outline-success p2 mr-2" @click="validateQuestion(true)">Correta</button>
+          <button class="btn btn-outline-danger p2" @click="validateQuestion(false)">Errada</button>
+        </div>
+
+        <BottomAlerts @close-alert="closeBottomAlert" :questionValidation="answerValidation" />       
+
       </div>
     </div>
   </div>
@@ -27,11 +34,13 @@
 <script>
 import QuestionBar from "@/components/QuestionBar.vue";
 import QuestionAlternative from "@/components/QuestionAlternative.vue";
+import BottomAlerts from '@/components/BottomAlerts.vue';
 
 export default {
   components: {
     QuestionBar,
     QuestionAlternative,
+    BottomAlerts
   },
   data() {
     return {
@@ -43,8 +52,17 @@ export default {
             { id: 2, text: 'Sit amet requiescat in pace' },
             { id: 3, text: 'Dominicus supremus labutas requiescat' },
           ]
-        },    
-      ]
+        },  
+      ],
+      answerValidation: null,
+    }
+  },
+  methods: {
+    validateQuestion: function (val) {
+      this.answerValidation = val;
+    },
+    closeBottomAlert: function () {
+      this.answerValidation = null;
     }
   }
 };
