@@ -5,17 +5,17 @@
 </template>
 
 <script>
-import { ApiService } from "@/services/ApiService";
+import { ApiService as QuizService } from "@/services/ApiService";
 
 export default {
   data() {
     return {
-      apiService: new ApiService('quiz'),
+      quizService: new QuizService('quiz'),
       quiz: []
     }
   },
   async mounted() {
-    this.quiz = await this.apiService.queryAll();
+    this.quiz = await this.quizService.queryAll();
     console.log(this.quiz);
   }
 };
