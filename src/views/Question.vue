@@ -15,13 +15,13 @@
         <!-- Alternativas -->
         <div class="btn-group-vertical btn-group-toggle col-12" data-toggle="buttons">
           <label v-for="answer in questions[currentQuestion].answers" :key="answer.id" class="btn btn-secondary mb-3">
-            <input type="radio" name="options" autocomplete="off" checked> {{ answer.text }}
+            <input v-model="selectedAnswer" :value="answer.correct" type="radio" name="options" autocomplete="off" checked> {{ answer.text }}
           </label>
         </div>  
 
         <!-- Ações -->
         <div class="pt-2 text-center">
-          <button class="btn btn-success p2" @click="nextQuestion">Conferir</button>
+          <button class="btn btn-success p2" @click="validateQuestion">Conferir</button>
         </div>
 
         <!-- <div class="pt-2 text-center">
@@ -73,8 +73,11 @@ export default {
         this.questions.push({ title: qst.title, answers: answersArray });
       });
     },
-    validateQuestion: function (val) {
-      this.answerValidation = val;
+    validateQuestion: function () {
+      // Implementar validação da questão aqui
+
+      this.nextQuestion();
+
     },
     nextQuestion: function () {
       this.answerValidation = null;
