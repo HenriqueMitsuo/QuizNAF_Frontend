@@ -1,34 +1,16 @@
 <template>
   <div class="row">
-    
-    <!-- TODO: Randomizar a ordem das perguntas -->
-    <div class="col-12 px-3">
-      <label>
-        <input type="radio" name="demo" class="card-input-element d-none" id="" />
-        <div class="card card-body bg-blue-container text-light d-flex flex-row justify-content-between align-items-center">
-          {{ question.trueAlternative }}
-        </div>
+    <div class="btn-group-vertical btn-group-toggle col-12" data-toggle="buttons">
+      <label class="btn btn-secondary mb-3">
+        <input type="radio" name="options" id="option1" autocomplete="off" checked> {{ question.trueAlternative }}
+      </label>
+      <label class="btn btn-secondary mb-3">
+        <input type="radio" name="options" id="option2" autocomplete="off"> {{ question.falseAlternative1 }}
+      </label>
+      <label class="btn btn-secondary mb-3">
+        <input type="radio" name="options" id="option3" autocomplete="off"> {{ question.falseAlternative2 }}
       </label>
     </div>
-
-    <div class="col-12 px-3">
-      <label>
-        <input type="radio" name="demo" class="card-input-element d-none" id="" />
-        <div class="card card-body bg-blue-container text-light d-flex flex-row justify-content-between align-items-center">
-          {{ question.falseAlternative1 }}
-        </div>
-      </label>
-    </div>
-
-    <div class="col-12 px-3">
-      <label>
-        <input type="radio" name="demo" class="card-input-element d-none" id="" />
-        <div class="card card-body bg-blue-container text-light d-flex flex-row justify-content-between align-items-center">
-          {{ question.falseAlternative2 }}
-        </div>
-      </label>
-    </div>
-
   </div>
 </template>
 
@@ -39,26 +21,14 @@ export default {
 };
 </script>
 
-<style>
-/* Código terceirizado para o radio button no card link https://jsfiddle.net/djibe89/at2cv9q1/ */
-label {
-  width: 100%;
-  font-size: 1rem;
+<style scoped>
+.btn-group-vertical > label {
+  border: none;
+  border-radius: 5px !important;
+  background-color: #34495e;
 }
 
-.card-input-element + .card {
-  height: calc(36px + 2 * 1rem);
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  border: 2px solid transparent;
-  border-radius: 4px;
-}
-
-.card-input-element + .card:hover {
-  cursor: pointer;
-}
-
-.card-input-element:checked + .card {
+.active {
   border: 2px solid white;
   background-color: white !important;
   color: black !important;
