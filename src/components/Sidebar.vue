@@ -1,11 +1,11 @@
 <template>
-  <div>
-    <!-- Barra Superior -->
+  <div id="sidebar">
     <div class="topbar">
-      <button class="openbtn" v-on:click="openNav"><i class="fas fa-bars"></i></button>
+      <button class="openbtn" v-on:click="openNav">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
 
-    <!-- Menu -->
     <div class="sidebar" :style="{ width: collapsed? '0px': '250px' }">
       <a href="javascript:void(0)" class="closebtn" v-on:click="closeNav">&times;</a>
 
@@ -14,14 +14,15 @@
       </div>
 
       <div class="nav-link">
-        <!-- <router-link to="/About">About</router-link> -->
         <a v-on:click="closeNav" class="text-light" data-toggle="modal" data-target="#exampleModalCenter">
           <i class="fas fa-question-circle mr-3"></i>Sobre
         </a>
       </div>
 
       <div class="nav-link" to="/Login">
-        <router-link to="/login"><i class="fas fa-sign-out-alt mr-3"></i>Sair</router-link>
+        <router-link to="/login">
+          <i class="fas fa-sign-out-alt mr-3"></i>Sair
+        </router-link>
       </div>
     </div>
   </div>
