@@ -34,24 +34,5 @@
 </template>
 
 <style>
-/* Mover tudo isso para um arquivo css separado dps (apenas para esse tipo de estilo global) */
-.form-control {
-  border: none;
-  padding-left: 0px !important;
-  background: #18222b !important;
-}
 
-.form-control:focus {
-  box-shadow: none !important;
-}
-
-.input-group-prepend  {
-  border: none;
-}
-
-.input-group-prepend > span {
-  border: none;
-  background: #18222b !important;
-  color: #3b536b;
-}
 </style>
