@@ -9,14 +9,14 @@
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1"><i class="fas fa-envelope"></i></span>
             </div>
-            <input type="text" class="form-control text-light" aria-label="Email" aria-describedby="basic-addon1">
+            <input type="text" class="form-control text-light" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
           </div>
 
           <div class="input-group input-group-lg mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1"><i class="fas fa-unlock"></i></span>
             </div>
-            <input type="password" class="form-control text-light" aria-label="Senha" aria-describedby="basic-addon1">
+            <input type="password" class="form-control text-light" placeholder="Senha" aria-label="Senha" aria-describedby="basic-addon1">
           </div>
 
           <router-link tag="button" class="btn btn-success btn-block mt-4" to="/">
@@ -33,12 +33,12 @@
   </div>
 </template>
 
-<style scoped>
+<style>
+/* Mover tudo isso para um arquivo css separado dps (apenas para esse tipo de estilo global) */
 .form-control {
   border: none;
   padding-left: 0px !important;
-  background: #1f2c38 !important;
-  color: #acbfd1 !important;
+  background: #18222b !important;
 }
 
 .form-control:focus {
@@ -51,7 +51,7 @@
 
 .input-group-prepend > span {
   border: none;
-  background: #1f2c38 !important;
-  color: #34495e;
+  background: #18222b !important;
+  color: #3b536b;
 }
 </style>
