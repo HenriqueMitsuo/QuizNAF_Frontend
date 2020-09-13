@@ -5,28 +5,29 @@
     <div class="vh-100">
       <div class="container">
 
-        <div class="row">
-          <div class="col-12 py-5">
-            <p class="text-light text-center" style="font-size: 1.2rem">
-              {{ questions[currentQuestion].title }}
-            </p>
-          </div>
+        <!-- Titulo -->
+        <div class="col-12 py-5">
+          <p class="text-light text-center" style="font-size: 1.2rem">
+            {{ questions[currentQuestion].title }}
+          </p>
         </div>
 
+        <!-- Alternativas -->
         <div class="btn-group-vertical btn-group-toggle col-12" data-toggle="buttons">
           <label v-for="answer in questions[currentQuestion].answers" :key="answer.id" class="btn btn-secondary mb-3">
             <input type="radio" name="options" autocomplete="off" checked> {{ answer.text }}
           </label>
         </div>  
 
+        <!-- Ações -->
         <div class="pt-2 text-center">
           <button class="btn btn-success p2" @click="nextQuestion">Conferir</button>
         </div>
 
-        <div class="pt-2 text-center">
+        <!-- <div class="pt-2 text-center">
           <button class="btn btn-outline-success p2 mr-2" @click="validateQuestion(true)">Correta</button>
           <button class="btn btn-outline-danger p2" @click="validateQuestion(false)">Errada</button>
-        </div>
+        </div> -->
 
         <BottomAlerts @close-alert="nextQuestion" :questionValidation="answerValidation" />       
 
