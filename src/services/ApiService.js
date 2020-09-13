@@ -5,6 +5,10 @@ export class ApiService {
     this.Resource = Resource;
   }
 
+  async queryFilter(filter) {
+    return await axios.get(this.Resource, { params: filter }).then(response => response.data);
+  }
+
   async queryAll() {
     return await axios.get(this.Resource).then(response => response.data);
   }

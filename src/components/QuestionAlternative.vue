@@ -14,7 +14,7 @@
 <script>
 export default {
   name: 'QuestionAlternative',
-  props: { questions: Array }
+  props: { questions: Object }
 };
 </script>
 

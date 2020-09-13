@@ -32,6 +32,8 @@
 </template>
 
 <script>
+import { ApiService as QuestionService } from "@/services/ApiService";
+
 import QuestionBar from "@/components/QuestionBar.vue";
 import QuestionAlternative from "@/components/QuestionAlternative.vue";
 import BottomAlerts from '@/components/BottomAlerts.vue';
@@ -52,10 +54,19 @@ export default {
             { id: 2, text: 'Sit amet requiescat in pace' },
             { id: 3, text: 'Dominicus supremus labutas requiescat' },
           ]
-        },  
+        }, 
+        
       ],
       answerValidation: null,
+      questionService: new QuestionService('questions'),
+      questionTest: [],
     }
+  },
+  async mounted() {
+    this.questionTest = await this.questionService.queryFilter({
+      quiz_id: this.$route.params.id,
+    });
+    console.log(this.questionTest);
   },
   methods: {
     validateQuestion: function (val) {
