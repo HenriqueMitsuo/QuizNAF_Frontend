@@ -2,7 +2,7 @@
   <div>
     <!-- Barra Superior -->
     <div class="topbar">
-      <button class="openbtn" v-on:click="openNav">&#9776;</button>
+      <button class="openbtn" v-on:click="openNav"><i class="fas fa-bars"></i></button>
     </div>
 
     <!-- Menu -->
@@ -10,25 +10,18 @@
       <a href="javascript:void(0)" class="closebtn" v-on:click="closeNav">&times;</a>
 
       <div class="nav-link">
-        <router-link to="/">Home</router-link>
+        <router-link to="/"><i class="fas fa-home mr-3"></i>Home</router-link>
       </div>
 
       <div class="nav-link">
         <!-- <router-link to="/About">About</router-link> -->
-        <a
-          v-on:click="closeNav"
-          class="text-light"
-          data-toggle="modal"
-          data-target="#exampleModalCenter"
-        >About</a>
-      </div>
-
-      <div class="nav-link">
-        <router-link to="/Question">Question</router-link>
+        <a v-on:click="closeNav" class="text-light" data-toggle="modal" data-target="#exampleModalCenter">
+          <i class="fas fa-question-circle mr-3"></i>Sobre
+        </a>
       </div>
 
       <div class="nav-link" to="/Login">
-        <router-link to="/login">Sair</router-link>
+        <router-link to="/login"><i class="fas fa-sign-out-alt mr-3"></i>Sair</router-link>
       </div>
     </div>
   </div>
