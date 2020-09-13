@@ -2,28 +2,28 @@
   <div class="container">
     <div class="row vh-100 justify-content-center align-items-center">
       <div class="col-12 pt-5">
-        <form action method>
+        <form action method class="mx-2">
           <img src="@/assets/person.png" class="mx-auto d-block mb-4" width="30%" />
 
           <div class="input-group input-group-lg mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1"><i class="fas fa-envelope"></i></span>
             </div>
-            <input type="text" class="form-control text-light" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
+            <input type="text" class="form-control text-light" aria-label="Email" aria-describedby="basic-addon1">
           </div>
 
           <div class="input-group input-group-lg mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1"><i class="fas fa-unlock"></i></span>
             </div>
-            <input type="password" class="form-control text-light" placeholder="Senha" aria-label="Senha" aria-describedby="basic-addon1">
+            <input type="password" class="form-control text-light" aria-label="Senha" aria-describedby="basic-addon1">
           </div>
 
-          <router-link tag="button" class="btn btn-success btn-block" to="/">
+          <router-link tag="button" class="btn btn-success btn-block mt-4" to="/">
             ENTRAR
           </router-link>
 
-          <router-link tag="button" class="btn btn-danger btn-block" to="/Register">
+          <router-link tag="button" class="btn btn-danger btn-block mt-3" to="/Register">
             REGISTRAR
           </router-link>
 
@@ -33,13 +33,25 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .form-control {
-  background: transparent !important;
+  border: none;
+  padding-left: 0px !important;
+  background: #1f2c38 !important;
+  color: #acbfd1 !important;
+}
+
+.form-control:focus {
+  box-shadow: none !important;
+}
+
+.input-group-prepend  {
+  border: none;
 }
 
 .input-group-prepend > span {
-  background: transparent !important;
-  color: #ffffff;
+  border: none;
+  background: #1f2c38 !important;
+  color: #34495e;
 }
 </style>
