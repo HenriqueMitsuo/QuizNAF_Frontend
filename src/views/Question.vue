@@ -8,15 +8,15 @@
         <div class="row">
           <div class="col-12 py-5">
             <p class="text-light text-center" style="font-size: 1.2rem">
-              {{ questions[0].text }}
+              {{ questions[currentQuestion].title }}
             </p>
           </div>
         </div>
 
-        <QuestionAlternative :questions="questions[0]" />
+        <QuestionAlternative :question="questions[currentQuestion]" />
 
         <div class="pt-2 text-center">
-          <button class="btn btn-success p2">Conferir</button>
+          <button class="btn btn-success p2" @click="nextQuestion">Conferir</button>
         </div>
 
         <div class="pt-2 text-center">
@@ -24,7 +24,7 @@
           <button class="btn btn-outline-danger p2" @click="validateQuestion(false)">Errada</button>
         </div>
 
-        <BottomAlerts @close-alert="closeBottomAlert" :questionValidation="answerValidation" />       
+        <BottomAlerts @close-alert="nextQuestion" :questionValidation="answerValidation" />       
 
       </div>
     </div>
@@ -46,34 +46,30 @@ export default {
   },
   data() {
     return {
-      questions: [ 
-        {
-          text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin nisi in ultricies accumsan. Donec pretium rhoncus sollicitudin. Mauris pretium, urna eu ornare dictum',
-          answers: [
-            { id: 1, text: 'Lorem Ipsum Ent Dolor' },
-            { id: 2, text: 'Sit amet requiescat in pace' },
-            { id: 3, text: 'Dominicus supremus labutas requiescat' },
-          ]
-        }, 
-        
-      ],
       answerValidation: null,
       questionService: new QuestionService('questions'),
-      questionTest: [],
+      questions: [],
+      currentQuestion: 0,
+      selectedAnswer: null
     }
   },
   async mounted() {
-    this.questionTest = await this.questionService.queryFilter({
+    this.questions = await this.questionService.queryFilter({
       quiz_id: this.$route.params.id,
     });
-    console.log(this.questionTest);
   },
   methods: {
     validateQuestion: function (val) {
       this.answerValidation = val;
     },
-    closeBottomAlert: function () {
+    nextQuestion: function () {
       this.answerValidation = null;
+
+      if (this.currentQuestion == this.questions.length) {
+        console.log("Fim do questionario")
+      } else {
+        this.currentQuestion++;
+      }     
     }
   }
 };

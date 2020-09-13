@@ -1,20 +1,41 @@
 <template>
   <div class="row">
+    
+    <!-- TODO: Randomizar a ordem das perguntas -->
     <div class="col-12 px-3">
-      <label v-for="answer in questions.answers" :key="answer.id">
-        <input type="radio" name="demo" class="card-input-element d-none" id="question.id" />
+      <label>
+        <input type="radio" name="demo" class="card-input-element d-none" id="" />
         <div class="card card-body bg-blue-container text-light d-flex flex-row justify-content-between align-items-center">
-          {{answer.text}}
+          {{ question.trueAlternative }}
         </div>
       </label>
     </div>
+
+    <div class="col-12 px-3">
+      <label>
+        <input type="radio" name="demo" class="card-input-element d-none" id="" />
+        <div class="card card-body bg-blue-container text-light d-flex flex-row justify-content-between align-items-center">
+          {{ question.falseAlternative1 }}
+        </div>
+      </label>
+    </div>
+
+    <div class="col-12 px-3">
+      <label>
+        <input type="radio" name="demo" class="card-input-element d-none" id="" />
+        <div class="card card-body bg-blue-container text-light d-flex flex-row justify-content-between align-items-center">
+          {{ question.falseAlternative2 }}
+        </div>
+      </label>
+    </div>
+
   </div>
 </template>
 
 <script>
 export default {
   name: 'QuestionAlternative',
-  props: { questions: Object }
+  props: { question: Object },
 };
 </script>
 
