@@ -1,14 +1,8 @@
 <template>
   <div class="row">
     <div class="btn-group-vertical btn-group-toggle col-12" data-toggle="buttons">
-      <label class="btn btn-secondary mb-3">
-        <input type="radio" name="options" id="option1" autocomplete="off" checked> {{ question.trueAlternative }}
-      </label>
-      <label class="btn btn-secondary mb-3">
-        <input type="radio" name="options" id="option2" autocomplete="off"> {{ question.falseAlternative1 }}
-      </label>
-      <label class="btn btn-secondary mb-3">
-        <input type="radio" name="options" id="option3" autocomplete="off"> {{ question.falseAlternative2 }}
+      <label v-for="answer in answers" :key="answer.id" class="btn btn-secondary mb-3">
+        <input type="radio" name="options" autocomplete="off" checked> {{ answer.text }}
       </label>
     </div>
   </div>
@@ -18,6 +12,18 @@
 export default {
   name: 'QuestionAlternative',
   props: { question: Object },
+  data() {
+    return {
+      answers: [
+        { id: 0, text: this.question.trueAlternative, correct: 1 },
+        { id: 1, text: this.question.falseAlternative1, correct: 0 },
+        { id: 2, text: this.question.falseAlternative2, correct: 0 },
+      ]
+    }
+  },
+  mounted() {
+    
+  }
 };
 </script>
 
