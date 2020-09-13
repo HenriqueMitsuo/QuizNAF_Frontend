@@ -5,20 +5,20 @@
 </template>
 
 <script>
-import { ApiService as QuizService } from "@/services/ApiService";
+// import { ApiService as QuizService } from "@/services/ApiService";
 
-export default {
-  data() {
-    return {
-      quizService: new QuizService('quiz'),
-      quiz: []
-    }
-  },
-  async mounted() {
-    this.quiz = await this.quizService.queryAll();
-    console.log(this.quiz);
-  }
-};
+// export default {
+//   data() {
+//     return {
+//       quizService: new QuizService('quiz'),
+//       quiz: []
+//     }
+//   },
+//   async mounted() {
+//     this.quiz = await this.quizService.queryAll();
+//     console.log(this.quiz);
+//   }
+// };
 </script>
 
 <style>

@@ -1,25 +1,22 @@
 <template>
-  <div class="col-sm-3 mt-3">
-    <div class="card bg-blue-container text-white">
-      <img class="card-img-top rounded" src="@/assets/bg-prototype.png" />
+  <div class="col-12 col-md-3 mt-2">
+    <div class="card bg-blue-container text-white mx-0" @click="goToQuiz(quiz.id)">
+      <img class="card-img-top" src="@/assets/bg-prototype.png" />
       <div class="card-body">
-        <p class="card-text text-light">Nome Disciplina</p>
-
-        <!-- Barra de progresso -->
-        <div class="progress-custom mt-n2">
-          <div class="progress" style="height: 10px">
-            <div
-              class="progress-bar bg-warning"
-              role="progressbar"
-              style="width: 33%"
-              aria-valuenow="33"
-              aria-valuemin="0"
-              aria-valuemax="100"
-            ></div>
-          </div>
-          <div class="progress-value">5/15</div>
-        </div>
+        <h5 class="card-title">{{ quiz.title }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ quiz.category }}</h6>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: [ 'quiz' ],
+  methods: {
+    goToQuiz: function(id) {
+      this.$router.push({ name: 'Question', params: { id: id } })
+    }
+  }
+}
+</script>
