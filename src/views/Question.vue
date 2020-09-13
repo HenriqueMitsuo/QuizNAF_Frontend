@@ -68,6 +68,7 @@ export default {
           { text: qst.falseAlternative1, correct: 0 },
           { text: qst.falseAlternative2, correct: 0}
         ];
+        answersArray.sort(() => {return 0.5 - Math.random()});
         this.questions.push({ title: qst.title, answers: answersArray });
       });
     },
@@ -82,7 +83,7 @@ export default {
       } else {
         this.currentQuestion++;
       }     
-    }
+    },
   }
 };
 </script>
