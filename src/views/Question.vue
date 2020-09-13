@@ -13,9 +13,9 @@
         </div>
 
         <!-- Alternativas -->
-        <div class="btn-group-vertical btn-group-toggle col-12" data-toggle="buttons">
-          <label v-for="answer in questions[currentQuestion].answers" :key="answer.id" class="btn btn-secondary mb-3">
-            <input v-model="selectedAnswer" :value="answer.correct" type="radio" name="options" autocomplete="off" checked> {{ answer.text }}
+        <div class="btn-group-vertical btn-group-toggle col-12">
+          <label v-for="answer in questions[currentQuestion].answers" :key="answer.id" :class="[{ active: selectedAnswer === answer.id }, 'btn btn-secondary mb-3']">
+            <input v-model="selectedAnswer" :value="answer.id" type="radio" name="options" autocomplete="off" checked> {{ answer.text }}
           </label>
         </div>  
 
@@ -23,11 +23,6 @@
         <div class="pt-2 text-center">
           <button class="btn btn-success p2" @click="validateQuestion">Conferir</button>
         </div>
-
-        <!-- <div class="pt-2 text-center">
-          <button class="btn btn-outline-success p2 mr-2" @click="validateQuestion(true)">Correta</button>
-          <button class="btn btn-outline-danger p2" @click="validateQuestion(false)">Errada</button>
-        </div> -->
 
         <BottomAlerts @close-alert="nextQuestion" :questionValidation="answerValidation" />       
 
@@ -62,24 +57,27 @@ export default {
     fetchQuestions: async function() {
       let fetchQuestions = await this.questionService.queryFilter({ quiz_id: this.$route.params.id });
 
-      // "Formatando" questões em um array separado
       fetchQuestions.forEach(qst => {
         let answersArray = [
-          { text: qst.trueAlternative, correct: 1 },
-          { text: qst.falseAlternative1, correct: 0 },
-          { text: qst.falseAlternative2, correct: 0}
+          { id: 0, text: qst.trueAlternative },
+          { id: 1, text: qst.falseAlternative1 },
+          { id: 2, text: qst.falseAlternative2 }
         ];
+
         answersArray.sort(() => {return 0.5 - Math.random()});
-        this.questions.push({ title: qst.title, answers: answersArray });
+        this.questions.push({ title: qst.title, correctId: 0, answers: answersArray });
       });
     },
     validateQuestion: function () {
-      // Implementar validação da questão aqui
-
-      this.nextQuestion();
-
+      if (this.selectedAnswer == this.questions[this.currentQuestion].correctId) {
+        console.log('Correto');
+        this.answerValidation = true;
+      } else {
+        this.answerValidation = false;
+      }
     },
     nextQuestion: function () {
+      this.selectedAnswer = null;
       this.answerValidation = null;
 
       if (this.currentQuestion == this.questions.length) {
@@ -99,7 +97,7 @@ export default {
   background-color: #34495e;
 }
 
-.btn-group-vertical .active {
+.btn-group-vertical > label.active {
   border: 2px solid white;
   background-color: white !important;
   color: black !important;
