@@ -1,8 +1,7 @@
 <template>
   <div class="app">
-    <QuestionBar :current="currentQuestion + 1" :total="questions.length"/>
+    <QuestionBar :score="currentScore" :current="currentQuestion + 1" :total="questions.length"/>
 
-    <div class="vh-100">
       <div class="container">
 
         <!-- Titulo -->
@@ -35,7 +34,7 @@
 
       </div>
     </div>
-  </div>
+
 </template>
 
 <script>
@@ -52,6 +51,7 @@ export default {
       questionService: new QuestionService('questions'),
       questions: [],
       currentQuestion: 0,
+      currentScore: 0,
       selectedAnswer: null,
       showSheet: false
     }
@@ -77,6 +77,7 @@ export default {
     validateQuestion: function () {
       if (this.selectedAnswer == 0) { // 0 sempre será o id de alternativa correta
         this.answerValidation = true;
+        this.currentScore++;
         this.showSheet = true;
       } else {
         this.answerValidation = false;

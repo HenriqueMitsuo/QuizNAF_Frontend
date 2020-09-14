@@ -16,7 +16,7 @@
 
     <div class="sticky-top navbar navbar-expand-md navbar-dark bg-blue-container">
       <span class="navbar-brand abs">
-        <i class="fas fa-star mr-2"></i>0
+        <i class="fas fa-star mr-2"></i>{{score}}
       </span>
       <div class="navbar-nav ml-auto">
         <div class="nav-item">
@@ -33,6 +33,6 @@
 <script>
 export default {
   name: 'question-bar',
-  props: [ 'current', 'total' ]
+  props: [ 'score', 'current', 'total' ]
 }
 </script>
