@@ -29,25 +29,17 @@
         <input type="text" name class="form-control text-light" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="País" />
       </div>
 
-      <div class="row mb-3">
-        <div class="input-group input-group-lg col-8 pr-0">
-          <div class="input-group-prepend">
-            <span class="input-group-text" style="background: transparent;">
-              <i class="fas fa-building"></i>
-            </span>
-          </div>
-          <input type="text" name class="form-control text-light" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Cidade" />
-        </div>    
-      
-        <div class="input-group input-group-lg col-4">
-          <div class="input-group-prepend">
-            <span class="input-group-text" style="background: transparent;">
-              <i class="fas fa-map-marker"></i>
-            </span>
-          </div>
-          <input type="text" name class="form-control text-light" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="UF" maxlength="2" />
-        </div>      
-      </div>
+
+      <div class="input-group input-group-lg mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" style="background: transparent;">
+            <i class="fas fa-building"></i>
+          </span>
+        </div>
+        <input type="text" name class="form-control text-light" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Cidade" />
+      </div>    
+          
+   
 
       <div class="input-group input-group-lg mb-3">
         <div class="input-group-prepend">
