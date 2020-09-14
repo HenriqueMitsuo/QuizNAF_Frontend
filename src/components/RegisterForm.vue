@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <form @submit.prevent="RegisterUser" method="post" class="mt-4">
+    <form @submit.prevent="RegisterUser" class="mt-4">
       <div class="input-group input-group-lg mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text">
@@ -106,6 +106,23 @@
       <div class="input-group input-group-lg mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text">
+            <i class="fa fa-tag"></i>
+          </span>
+        </div>
+        <input
+          type="text"
+          v-model="User.educationType"
+          class="form-control text-light"
+          aria-label="Large"
+          aria-describedby="inputGroup-sizing-sm"
+          placeholder="Tipo de curso"
+          required
+        />
+      </div>
+
+      <div class="input-group input-group-lg mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
             <i class="fas fa-lock"></i>
           </span>
         </div>
@@ -154,6 +171,7 @@ export default {
         country: null,
         city: null,
         educationInstitute: null,
+        educationType: null,
         educationCourse: null,
         password: null,
       },
@@ -161,7 +179,8 @@ export default {
   },
   methods: {
     RegisterUser: async function () {
-      await this.userService.createUser(this.User);
+      // await this.userService.createUser(this.User);
+      console.log(this.User);
     },
   },
 };
