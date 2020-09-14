@@ -36,21 +36,6 @@ export default {
 </script>
 
 <style>
-/* Estilização para deixar os numeros ao da progress bar */
-.progress-custom {
-  display: table;
-  width: 100%;
-}
 
-.progress-custom .progress {
-  margin-bottom: 7px;
-  vertical-align: middle;
-}
-
-.progress-custom .progress-value {
-  display: table-cell;
-  width: 1%;
-  padding: 0 4px;
-}
 </style>
 
