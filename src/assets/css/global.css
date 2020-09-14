@@ -10,6 +10,20 @@ body {
   background-color: var(--bg-dark) !important;
 }
 
+/* Cores de fundo */
+.bg-app-primary {
+  background-color: var(--bg-dark-light);
+}
+
+.bg-app-secondary {
+  background-color: var(--bg-dark);
+}
+
+.bg-app-accent {
+  background-color: var(--bg-light);
+}
+
+
 .bg-blue-container {
   background-color: var(--bg-dark-light-dm) !important;
 }

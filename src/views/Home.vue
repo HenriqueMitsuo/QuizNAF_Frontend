@@ -1,18 +1,9 @@
 <template>
   <div class="app">
     <Sidebar />
-
-    <!-- <NavBar /> -->
-    <div class="bg-blue">
-      <!-- px define padding left e right -->
-      <div class="container-fluid">
-        <!-- Linha do Tópico principal expandido -->
-        <!-- <TopicExpanded /> -->
-
-        <!-- Linha para Tópicos | mt-4 coloca um espaçamento do componente acima -->
-        <div class="card-deck mt-4">
-          <Topic v-for="quiz in quizzes" :key="quiz.id" :quiz="quiz" />
-        </div>
+    <div class="container-fluid">
+      <div class="card-deck mt-4">
+        <Topic v-for="quiz in quizzes" :key="quiz.id" :quiz="quiz" />
       </div>
     </div>
     <AboutDialog />
@@ -22,14 +13,12 @@
 <script>
 import { ApiService as QuizService } from "@/services/ApiService";
 import Sidebar from "@/components/Sidebar.vue";
-// import TopicExpanded from "@/components/TopicExpanded.vue";
 import Topic from "@/components/Topic.vue";
 import AboutDialog from "@/components/AboutDialog.vue";
 
 export default {
   components: {
     Sidebar,
-    // TopicExpanded,
     Topic,
     AboutDialog,
   },
