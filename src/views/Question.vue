@@ -21,10 +21,17 @@
 
         <!-- Ações -->
         <div class="pt-2 text-center">
-          <button class="btn btn-success p2" @click="validateQuestion">Conferir</button>
+          <button v-if="selectedAnswer != null" class="btn btn-success p2" @click="validateQuestion">Conferir</button>
         </div>
 
-        <BottomAlerts @close-alert="nextQuestion" :questionValidation="answerValidation" />       
+        <!-- Notificações -->
+        <div v-if="showSheet" :class="answerValidation ? ['fixed-bottom bg-success'] : ['fixed-bottom bg-danger']">
+          <div class="text-light text-center py-5">
+              <i class="fas fa-check-circle fa-3x mb-2"></i>
+              <h4>Você {{answerValidation ? 'acertou' : 'errou' }}!</h4>
+              <button class="btn btn-outline-light mt-4" @click="nextQuestion">PROXIMA PERGUNTA</button>
+          </div>
+        </div> 
 
       </div>
     </div>
@@ -34,12 +41,10 @@
 <script>
 import { ApiService as QuestionService } from "@/services/ApiService";
 import QuestionBar from "@/components/QuestionBar.vue";
-import BottomAlerts from '@/components/BottomAlerts.vue';
 
 export default {
   components: {
     QuestionBar,
-    BottomAlerts
   },
   data() {
     return {
@@ -47,7 +52,8 @@ export default {
       questionService: new QuestionService('questions'),
       questions: [],
       currentQuestion: 0,
-      selectedAnswer: null
+      selectedAnswer: null,
+      showSheet: false
     }
   },
   async mounted() {
@@ -65,18 +71,20 @@ export default {
         ];
 
         answersArray.sort(() => {return 0.5 - Math.random()});
-        this.questions.push({ title: qst.title, correctId: 0, answers: answersArray });
+        this.questions.push({ title: qst.title , answers: answersArray });
       });
     },
     validateQuestion: function () {
-      if (this.selectedAnswer == this.questions[this.currentQuestion].correctId) {
-        console.log('Correto');
+      if (this.selectedAnswer == 0) { // 0 sempre será o id de alternativa correta
         this.answerValidation = true;
+        this.showSheet = true;
       } else {
         this.answerValidation = false;
+        this.showSheet = true;
       }
     },
     nextQuestion: function () {
+      this.showSheet = false;
       this.selectedAnswer = null;
       this.answerValidation = null;
 
@@ -98,7 +106,6 @@ export default {
 }
 
 .btn-group-vertical > label.active {
-  border: 2px solid white;
   background-color: white !important;
   color: black !important;
   -webkit-transition: 0.3s;
