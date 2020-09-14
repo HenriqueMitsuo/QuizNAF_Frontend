@@ -12,7 +12,7 @@
 
         <!-- Alternativas -->
         <div class="btn-group-vertical btn-group-toggle col-12">
-          <label v-for="answer in questions[currentQuestion].answers" :key="answer.id" :class="[{ active: selectedAnswer === answer.id }, 'btn btn-secondary mb-3']">
+          <label v-for="answer in questions[currentQuestion].answers" :key="answer.id" :class="[{ active: selectedAnswer === answer.id }, 'btn btn-secondary bg-app-primary mb-3']">
             <input v-model="selectedAnswer" :value="answer.id" type="radio" name="options" autocomplete="off" checked> {{ answer.text }}
           </label>
         </div>  
@@ -101,13 +101,10 @@ export default {
 .btn-group-vertical > label {
   border: none;
   border-radius: 5px !important;
-  background-color: var(--bg-dark-light);
   padding: 6px;
 }
 
 .btn-group-vertical > label.active {
-  background-color: var(--bg-light) !important;
-  color: var(--bg-dark) !important;
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
