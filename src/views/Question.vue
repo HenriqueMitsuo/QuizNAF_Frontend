@@ -1,7 +1,6 @@
 <template>
   <div class="app">
     <QuestionBar :score="currentScore" :current="currentQuestion + 1" :total="questions.length"/>
-
       <div class="container">
         <!-- Titulo -->
         <div class="col-12 py-5">
