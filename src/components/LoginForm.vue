@@ -18,7 +18,7 @@
             <input type="password" class="form-control text-light" placeholder="Senha" aria-label="Senha" aria-describedby="basic-addon1">
           </div>
 
-          <router-link tag="button" class="btn btn-success btn-block mt-4" to="/">
+          <router-link tag="button" class="btn btn-success btn-block mt-4" to="/Home">
             ENTRAR
           </router-link>
 

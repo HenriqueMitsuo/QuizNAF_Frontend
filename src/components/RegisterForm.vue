@@ -154,7 +154,7 @@
       </div>
 
       <button type="submit" class="btn btn-warning btn-block mt-3">REGISTRAR</button>
-      <router-link tag="button" class="btn btn-danger btn-block mt-3" to="/Login">Voltar</router-link>
+      <router-link tag="button" class="btn btn-danger btn-block mt-3" to="/">Voltar</router-link>
     </form>
     <div v-if="WrongPassword" class="fixed-bottom bg-danger">
       <div class="text-light text-center py-5">

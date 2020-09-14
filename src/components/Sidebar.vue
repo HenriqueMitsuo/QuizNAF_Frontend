@@ -19,8 +19,8 @@
         </a>
       </div>
 
-      <div class="nav-link" to="/Login">
-        <router-link to="/login">
+      <div class="nav-link">
+        <router-link to="/">
           <i class="fas fa-sign-out-alt mr-3"></i>Sair
         </router-link>
       </div>
