@@ -145,16 +145,24 @@
         </div>
         <input
           type="password"
+          v-model="passwordRepeat"
           class="form-control text-light"
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
           placeholder="Repita a senha"
-          required
         />
       </div>
 
       <button type="submit" class="btn btn-warning btn-block mt-3">REGISTRAR</button>
+      <router-link tag="button" class="btn btn-danger btn-block mt-3" to="/Login">Voltar</router-link>
     </form>
+    <div v-if="WrongPassword" class="fixed-bottom bg-danger">
+      <div class="text-light text-center py-5">
+        <i class="fas fa-check-circle fa-3x mb-2"></i>
+        <h4>Ops, senha incorreta</h4>
+        <button class="btn btn-outline-light mt-4" @click="closeWrong">OK</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -165,6 +173,8 @@ export default {
   data() {
     return {
       userService: new UserService("register"),
+      WrongPassword: false,
+      passwordRepeat: null,
       User: {
         name: null,
         email: null,
@@ -179,8 +189,14 @@ export default {
   },
   methods: {
     RegisterUser: async function () {
-      await this.userService.createUser(this.User);
-      console.log(this.User);
+      if (this.User.password == this.passwordRepeat) {
+        await this.userService.createUser(this.User);
+      } else {
+        this.WrongPassword = true;
+      }
+    },
+    closeWrong: async function () {
+      this.WrongPassword = false;
     },
   },
 };
