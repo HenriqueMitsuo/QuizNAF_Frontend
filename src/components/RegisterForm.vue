@@ -179,7 +179,7 @@ export default {
   },
   methods: {
     RegisterUser: async function () {
-      // await this.userService.createUser(this.User);
+      await this.userService.createUser(this.User);
       console.log(this.User);
     },
   },
