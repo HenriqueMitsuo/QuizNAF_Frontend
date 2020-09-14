@@ -10,7 +10,7 @@
       aria-hidden="true"
     >
       <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="bg-blue-container text-center text-white modal-content">
+        <div class="bg-app-primary text-center text-white modal-content">
           <div class="modal-body">
             <h5>SOBRE NÓS</h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vitae ex bibendum, posuere turpis at, malesuada tortor. Aenean condimentum bibendum ipsum vitae tincidunt.
           </div>
