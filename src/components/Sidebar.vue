@@ -54,7 +54,7 @@ export default {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #2b3c4d;
+  background-color: var(--bg-dark);
   overflow-x: hidden;
   padding-top: 60px;
   transition: 0.5s;
@@ -68,11 +68,6 @@ export default {
   transition: 0.3s;
 }
 
-.nav-link > a:hover {
-  color: #34495e;
-  text-decoration: none;
-}
-
 .sidebar .closebtn {
   position: absolute;
   top: 0;
@@ -84,13 +79,13 @@ export default {
 }
 
 .topbar {
-  background-color: #34495e;
+  background-color: var(--bg-dark-light);
 }
 
 .openbtn {
   font-size: 20px;
   cursor: pointer;
-  background-color: #34495e;
+  background-color: var(--bg-dark-light);
   color: white;
   padding: 10px 15px;
   border: none;

@@ -3,7 +3,6 @@
     <div class="row vh-100 justify-content-center align-items-center">
       <div class="col-12 pt-5">
         <form action method class="mx-2">
-          <img src="@/assets/person.png" class="mx-auto d-block mb-4" width="30%" />
 
           <div class="input-group input-group-lg mb-3">
             <div class="input-group-prepend">

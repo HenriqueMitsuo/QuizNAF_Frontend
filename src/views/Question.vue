@@ -101,13 +101,13 @@ export default {
 .btn-group-vertical > label {
   border: none;
   border-radius: 5px !important;
-  background-color: #34495e;
+  background-color: var(--bg-dark-light);
   padding: 6px;
 }
 
 .btn-group-vertical > label.active {
-  background-color: white !important;
-  color: black !important;
+  background-color: var(--bg-light) !important;
+  color: var(--bg-dark) !important;
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
