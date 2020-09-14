@@ -3,7 +3,6 @@
     <QuestionBar :score="currentScore" :current="currentQuestion + 1" :total="questions.length"/>
 
       <div class="container">
-
         <!-- Titulo -->
         <div class="col-12 py-5">
           <p class="text-light text-center" style="font-size: 1.2rem">
@@ -31,10 +30,8 @@
               <button class="btn btn-outline-light mt-4" @click="nextQuestion">PROXIMA PERGUNTA</button>
           </div>
         </div> 
-
       </div>
     </div>
-
 </template>
 
 <script>
@@ -105,6 +102,7 @@ export default {
   border: none;
   border-radius: 5px !important;
   background-color: #34495e;
+  padding: 6px;
 }
 
 .btn-group-vertical > label.active {
