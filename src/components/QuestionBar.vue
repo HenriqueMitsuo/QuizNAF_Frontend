@@ -21,7 +21,7 @@
       <div class="navbar-nav ml-auto">
         <div class="nav-item">
           <span class="navbar-brand">
-            <i class="fas fa-question-circle mr-2"></i>1/12
+            <i class="fas fa-question-circle mr-2"></i> {{current}} / {{ total }}
           </span>
         </div>
       </div>
@@ -29,3 +29,10 @@
 
   </div>
 </template>
+
+<script>
+export default {
+  name: 'question-bar',
+  props: [ 'current', 'total' ]
+}
+</script>

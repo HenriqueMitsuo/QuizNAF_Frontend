@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <QuestionBar />
+    <QuestionBar :current="currentQuestion + 1" :total="questions.length"/>
 
     <div class="vh-100">
       <div class="container">
@@ -88,9 +88,10 @@ export default {
       this.selectedAnswer = null;
       this.answerValidation = null;
 
-      if (this.currentQuestion == this.questions.length) {
+      if (this.currentQuestion === this.questions.length) {
         console.log("Fim do questionario")
       } else {
+        console.log("+ questionario");
         this.currentQuestion++;
       }     
     },
