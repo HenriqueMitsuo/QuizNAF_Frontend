@@ -21,6 +21,10 @@ export class ApiService {
     return await axios.post(this.Resource, data).then(response => response.data);
   }
 
+  async createUser(data) {
+    return await axios.post('register', data).then(response => response.data);
+  }
+
   async updateOne(id, data) {
     return await axios.put(`${this.Resource}/${id}`, data).then(response => response.data);
   }
@@ -28,4 +32,6 @@ export class ApiService {
   async deleteOne(id) {
     return await axios.delete(`${this.Resource}/${id}`).then(response => response.data);
   }
+
+
 }
