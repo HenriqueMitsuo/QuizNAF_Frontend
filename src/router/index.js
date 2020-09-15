@@ -11,12 +11,17 @@ const routes = [
     name: "Login",
     component: Login,
   },
+  {
+    path: "/Register",
+    name: "Register",
+    component: () => import("../views/Register.vue")
+  },
   {  
     path: "/Home",
     name: "Home",
     component: () => import("../views/Home.vue"),
     beforeEnter (_, __, next) {
-      checkAuth() === true ? next() : next('/');  
+      checkAuth() ? next() : next('/')
     }
   },
   {
@@ -24,18 +29,16 @@ const routes = [
     name: "Question",
     component: () => import("../views/Question.vue"),
     beforeEnter (_, __, next) {
-      checkAuth() === true ? next() : next('/');  
+      checkAuth() ? next() : next('/')
     }
-  },
-  {
-    path: "/Register",
-    name: "Register",
-    component: () => import("../views/Register.vue")
   },
   {
     path: "/Profile",
     name: "Profile",
-    component: () => import("../views/Profile.vue")
+    component: () => import("../views/Profile.vue"),
+    beforeEnter (_, __, next) {
+      checkAuth() ? next() : next('/')
+    }
   }
 ];
 

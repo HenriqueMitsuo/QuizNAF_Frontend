@@ -14,18 +14,21 @@ export function signOut() {
     console.log("Auth: usuário desconectado");
 }
 
-export function checkAuth() {
-  let jwt = localStorage.getItem('token');
-  const { exp: expiration } = decode(jwt);
+export function checkAuth () {
+  const token = localStorage.getItem('token');
 
-  // Checa se token existe
-  if (jwt) { 
-    if (Date.now() >= expiration * 1000) {
-      console.log('token expirado')
-      return false;
-    }
-    return true;  
-  } else {
+  if (!token)
     return false;
+
+  try {
+    const { exp: expiration } = decode(token);
+    const isExpired = !!expiration && Date.now() > expiration * 1000;
+
+    if (isExpired) 
+      return false; 
+
+    return true;
+  } catch (_) {   
+    return false
   }
 }
