@@ -6,15 +6,24 @@
       </button>
     </div>
 
-    <div class="sidebar" :style="{ width: collapsed? '0px': '250px' }">
+    <div class="sidebar" :style="{ width: collapsed ? '0px' : '250px' }">
       <a href="javascript:void(0)" class="closebtn" v-on:click="closeNav">&times;</a>
 
       <div class="nav-link">
-        <router-link to="/"><i class="fas fa-home mr-3"></i>Home</router-link>
+        <router-link to="/Home"><i class="fas fa-home mr-3"></i>Home</router-link>
       </div>
 
       <div class="nav-link">
-        <a v-on:click="closeNav" class="text-light" data-toggle="modal" data-target="#exampleModalCenter">
+        <router-link to="/Profile"><i class="fas fa-user-circle mr-3"></i>Profile</router-link>
+      </div>
+
+      <div class="nav-link">
+        <a
+          v-on:click="closeNav"
+          class="text-light"
+          data-toggle="modal"
+          data-target="#exampleModalCenter"
+        >
           <i class="fas fa-question-circle mr-3"></i>Sobre
         </a>
       </div>
@@ -24,32 +33,31 @@
           <i class="fas fa-sign-out-alt mr-3"></i>Sair
         </button>
       </div>
-
     </div>
   </div>
 </template>
 
 <script>
-import { signOut } from '@/services/AuthService';
+import { signOut } from "@/services/AuthService";
 
 export default {
   data() {
     return {
-      collapsed: true,
+      collapsed: true
     };
   },
   methods: {
-    openNav: function () {
+    openNav: function() {
       this.collapsed = false;
     },
-    closeNav: function () {
+    closeNav: function() {
       this.collapsed = true;
     },
     logOff: function() {
       signOut();
-      this.$router.push('/');
+      this.$router.push("/");
     }
-  },
+  }
 };
 </script>
 
