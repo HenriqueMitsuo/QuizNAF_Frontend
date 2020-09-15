@@ -19,16 +19,19 @@
         </a>
       </div>
 
-      <div class="nav-link">
-        <router-link to="/">
+      <div class="nav-link mt-4">
+        <button class="btn bg-app-primary btn-block btn-lg text-light" @click="logOff">
           <i class="fas fa-sign-out-alt mr-3"></i>Sair
-        </router-link>
+        </button>
       </div>
+
     </div>
   </div>
 </template>
 
 <script>
+import { signOut } from '@/services/AuthService';
+
 export default {
   data() {
     return {
@@ -42,6 +45,10 @@ export default {
     closeNav: function () {
       this.collapsed = true;
     },
+    logOff: function() {
+      signOut();
+      this.$router.push('/');
+    }
   },
 };
 </script>

@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import Login from "../views/Login.vue";
+import { isSignedIn } from "../services/AuthService";
 
 Vue.use(VueRouter);
 
@@ -8,17 +9,23 @@ const routes = [
   {
     path: "/",
     name: "Login",
-    component: () => import("../views/Login.vue")
+    component: Login,
   },
   {  
     path: "/Home",
     name: "Home",
-    component: Home
+    component: () => import("../views/Home.vue"),
+    beforeEnter (_, __, next) {
+      isSignedIn() === true ? next() : next('/');  
+    }
   },
   {
     path: "/Question/:id",
     name: "Question",
-    component: () => import("../views/Question.vue")
+    component: () => import("../views/Question.vue"),
+    beforeEnter (_, __, next) {
+      isSignedIn() === true ? next() : next('/');  
+    }
   },
   {
     path: "/Register",

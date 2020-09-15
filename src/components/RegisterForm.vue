@@ -191,6 +191,8 @@ export default {
     RegisterUser: async function () {
       if (this.User.password == this.passwordRepeat) {
         await this.userService.createUser(this.User);
+        // TODO: Redirecionar para o login e mostrar alert 'agora efetue seu cadastro'
+        this.$router.push('/');
       } else {
         this.WrongPassword = true;
       }
