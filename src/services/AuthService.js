@@ -16,9 +16,14 @@ export function signOut() {
 
 export function checkAuth() {
   let jwt = localStorage.getItem('token');
+  const { exp: expiration } = decode(jwt);
 
   // Checa se token existe
   if (jwt) { 
+    if (Date.now() >= expiration * 1000) {
+      console.log('token expirado')
+      return false;
+    }
     return true;  
   } else {
     return false;
