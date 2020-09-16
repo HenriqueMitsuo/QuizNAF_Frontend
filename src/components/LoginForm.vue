@@ -45,9 +45,13 @@ export default {
   },
   methods: {
     async submitLogin() {
-      // TODO: Implementar um alert no caso de erro
-      await signIn(this.email, this.password);
-      this.$router.push('/Home');
+      await signIn(this.email, this.password)
+        .then(() => {
+          this.$toasted.global.login_success();
+          this.$router.push('/Home');
+        }).catch(() => {
+          this.$toasted.global.login_error();
+        });      
     }
   }
 }
