@@ -10,11 +10,15 @@
       <a href="javascript:void(0)" class="closebtn" v-on:click="closeNav">&times;</a>
 
       <div class="nav-link">
-        <router-link to="/Home"><i class="fas fa-home mr-3"></i>Home</router-link>
+        <router-link to="/Home">
+          <i class="fas fa-home mr-3"></i>Home
+        </router-link>
       </div>
 
       <div class="nav-link">
-        <router-link to="/Profile"><i class="fas fa-user-circle mr-3"></i>Profile</router-link>
+        <router-link to="/Profile">
+          <i class="fas fa-user-circle mr-3"></i>Perfil
+        </router-link>
       </div>
 
       <div class="nav-link">
@@ -34,30 +38,35 @@
         </button>
       </div>
     </div>
+    <AboutDialog />
   </div>
 </template>
 
 <script>
+import AboutDialog from "@/components/AboutDialog.vue";
 import { signOut } from "@/services/AuthService";
 
 export default {
+  components: {
+    AboutDialog,
+  },
   data() {
     return {
-      collapsed: true
+      collapsed: true,
     };
   },
   methods: {
-    openNav: function() {
+    openNav: function () {
       this.collapsed = false;
     },
-    closeNav: function() {
+    closeNav: function () {
       this.collapsed = true;
     },
-    logOff: function() {
+    logOff: function () {
       signOut();
       this.$router.push("/");
-    }
-  }
+    },
+  },
 };
 </script>
 

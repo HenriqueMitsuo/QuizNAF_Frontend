@@ -6,7 +6,6 @@
         <Topic v-for="quiz in quizzes" :key="quiz.id" :quiz="quiz" />
       </div>
     </div>
-    <AboutDialog />
   </div>
 </template>
 
@@ -14,13 +13,11 @@
 import { ApiService as QuizService } from "@/services/ApiService";
 import Sidebar from "@/components/Sidebar.vue";
 import Topic from "@/components/Topic.vue";
-import AboutDialog from "@/components/AboutDialog.vue";
 
 export default {
   components: {
     Sidebar,
     Topic,
-    AboutDialog,
   },
   data() {
     return {
@@ -38,4 +35,3 @@ export default {
 <style>
 
 </style>
-
