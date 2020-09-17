@@ -156,13 +156,6 @@
       <button type="submit" class="btn btn-warning btn-block mt-3">REGISTRAR</button>
       <router-link tag="button" class="btn btn-danger btn-block mt-3" to="/">Voltar</router-link>
     </form>
-    <div v-if="WrongPassword" class="fixed-bottom bg-danger">
-      <div class="text-light text-center py-5">
-        <i class="fas fa-check-circle fa-3x mb-2"></i>
-        <h4>Ops, senha incorreta</h4>
-        <button class="btn btn-outline-light mt-4" @click="closeWrong">OK</button>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -173,7 +166,6 @@ export default {
   data() {
     return {
       userService: new UserService("register"),
-      WrongPassword: false,
       passwordRepeat: null,
       User: {
         name: null,
@@ -191,14 +183,11 @@ export default {
     RegisterUser: async function () {
       if (this.User.password == this.passwordRepeat) {
         await this.userService.createUser(this.User);
-        // TODO: Redirecionar para o login e mostrar alert 'agora efetue seu cadastro'
-        this.$router.push('/');
+        this.$router.push("/");
+        this.$toasted.global.register_success();
       } else {
-        this.WrongPassword = true;
+        this.$toasted.global.register_error();
       }
-    },
-    closeWrong: async function () {
-      this.WrongPassword = false;
     },
   },
 };

@@ -30,7 +30,7 @@
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
           placeholder="E-mail"
-          value=""
+          value
           disabled
         />
       </div>
@@ -136,3 +136,18 @@
   </div>
 </template>
 
+<script>
+import { ApiService as UserService } from "@/services/ApiService";
+
+export default {
+  data(){
+    return{
+      userService: new UserService("users"),
+    };
+  },
+  async mounted() {
+    // const token = localStorage.getItem("email");
+    // console.log(token);
+  },
+};
+</script>
