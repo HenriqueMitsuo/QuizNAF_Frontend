@@ -30,25 +30,20 @@
         </div>    
       </div>
 
-      <!-- Notificações -->
-      <div v-if="showSheet" :class="answerValidation ? ['fixed-bottom bg-success'] : ['fixed-bottom bg-danger']">
-        <div class="text-light text-center py-5">
-            <i class="fas fa-check-circle fa-3x mb-2"></i>
-            <h4>Você {{answerValidation ? 'acertou' : 'errou' }}!</h4>
-            <button class="btn btn-outline-light mt-4" @click="nextQuestion">PROXIMA PERGUNTA</button>
-        </div>
-      </div>
-
+      <!-- Alertas de validação -->
+      <QuestionAlerts v-on:nextQuestion="nextQuestion" :showSheet="showSheet" :answerValidation="answerValidation" />
     </div>
 </template>
 
 <script>
 import { ApiService as QuestionService } from "@/services/ApiService";
+import QuestionAlerts from "@/components/QuestionAlerts.vue";
 import QuestionBar from "@/components/QuestionBar.vue";
 
 export default {
   components: {
     QuestionBar,
+    QuestionAlerts
   },
   data() {
     return {
