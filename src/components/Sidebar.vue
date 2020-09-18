@@ -33,7 +33,7 @@
       </div>
 
       <div class="nav-link mt-4">
-        <button class="btn bg-app-primary btn-block btn-lg text-light" @click="logOff">
+        <button class="btn bg-app-primary btn-lg text-light" style="width: 200px" @click="logOff">
           <i class="fas fa-sign-out-alt mr-3"></i>Sair
         </button>
       </div>
@@ -85,6 +85,7 @@ export default {
 }
 
 .nav-link > a {
+  width: 250px;
   padding: 8px 8px 8px 16px;
   font-size: 24px;
   color: #ffffff;
