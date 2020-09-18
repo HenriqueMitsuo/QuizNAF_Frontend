@@ -2,6 +2,14 @@
   <div class="app">
     <Sidebar />
     <div class="container-fluid">
+      <!-- Spinner -->
+      <div v-if="loading" class="text-center mt-4">
+        <div class="spinner-border text-light" role="status">
+          <span class="sr-only">Carregando...</span>
+        </div>
+      </div>   
+
+      <!-- Conteúdo -->
       <div class="card-deck mt-4">
         <Topic v-for="quiz in quizzes" :key="quiz.id" :quiz="quiz" />
       </div>
@@ -22,11 +30,13 @@ export default {
   data() {
     return {
       quizService: new QuizService('quiz'),
-      quizzes: []
+      quizzes: [],
+      loading: true
     }
   },
   async mounted() {
     this.quizzes = await this.quizService.queryAll();
+    this.loading = false;
     console.log(this.quizzes);
   },
 };

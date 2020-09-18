@@ -1,7 +1,15 @@
 <template>
   <div class="app">
     <QuestionBar :score="currentScore" :current="currentQuestion + 1" :total="questions.length"/>
-      <div class="container">
+      <!-- Spinner -->
+      <div v-if="loading" class="text-center mt-4">
+        <div class="spinner-border text-light" role="status">
+          <span class="sr-only">Carregando...</span>
+        </div>
+      </div>  
+
+      <!-- Conteúdo -->
+      <div v-if="questions.length > 0" class="container"> 
         <!-- Titulo -->
         <div class="col-12 py-5">
           <p class="text-light text-center" style="font-size: 1.2rem">
@@ -49,7 +57,8 @@ export default {
       currentQuestion: 0,
       currentScore: 0,
       selectedAnswer: null,
-      showSheet: false
+      showSheet: false,
+      loading: true
     }
   },
   async mounted() {
@@ -68,6 +77,7 @@ export default {
 
         answersArray.sort(() => {return 0.5 - Math.random()});
         this.questions.push({ title: qst.title , answers: answersArray });
+        this.loading = false;
       });
     },
     validateQuestion: function () {

@@ -19,7 +19,10 @@
           </div>
 
           <button type="submit" class="btn bg-app-accent btn-block mt-4">
-            ENTRAR
+            <span v-if="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true">
+              <span class="sr-only">Carregando...</span>
+            </span>
+            <span v-else>ENTRAR</span>      
           </button>
 
           <router-link tag="button" class="btn btn-outline-light btn-block mt-3" to="/Register">
@@ -40,15 +43,18 @@ export default {
   data() {
     return {
       email: null,
-      password: null
+      password: null,
+      loading: null,
     }
   },
   methods: {
     async submitLogin() {
+      this.loading = true;
       await signIn(this.email, this.password)
         .then(() => {
           this.$toasted.global.login_success();
           this.$router.push('/Home');
+          this.loading = false;
         }).catch(() => {
           this.$toasted.global.login_error();
         });      
