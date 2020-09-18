@@ -53,11 +53,11 @@ export default {
       await signIn(this.email, this.password)
         .then(() => {
           this.$toasted.global.login_success();
-          this.$router.push('/Home');
-          this.loading = false;
+          this.$router.push('/Home');      
         }).catch(() => {
           this.$toasted.global.login_error();
-        });      
+        });  
+      this.loading = false;
     }
   }
 }
