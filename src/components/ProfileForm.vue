@@ -10,6 +10,7 @@
         </div>
         <input
           type="text"
+          v-model="User.name"
           class="form-control text-light"
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
@@ -26,6 +27,7 @@
         </div>
         <input
           type="text"
+          v-model="User.email"
           class="form-control text-light"
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
@@ -43,6 +45,7 @@
         </div>
         <input
           type="text"
+          v-model="User.country"
           class="form-control text-light"
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
@@ -59,6 +62,7 @@
         </div>
         <input
           type="text"
+          v-model="User.city"
           class="form-control text-light"
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
@@ -75,6 +79,7 @@
         </div>
         <input
           type="text"
+          v-model="User.educationInstitute"
           class="form-control text-light"
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
@@ -91,6 +96,7 @@
         </div>
         <input
           type="text"
+          v-model="User.educationCourse"
           class="form-control text-light"
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
@@ -107,6 +113,7 @@
         </div>
         <input
           type="text"
+          v-model="User.educationType"
           class="form-control text-light"
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
@@ -127,7 +134,6 @@
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
           placeholder="Digite a senha para salvar"
-          required
         />
       </div>
 
@@ -137,4 +143,38 @@
 </template>
 
 <script>
+import decode from "jwt-decode";
+
+export default {
+  data() {
+    return {
+      User: {
+        name: null,
+        email: null,
+        country: null,
+        city: null,
+        educationInstitute: null,
+        educationType: null,
+        educationCourse: null,
+      },
+    };
+  },
+  async mounted() {
+    this.fillModel(); //Preenche os inputs com os dados do token
+  },
+  methods: {
+    fillModel: async function () {
+      const token = localStorage.getItem("token");
+      var decoded = decode(token);
+
+      this.User.name = decoded.name;
+      this.User.email = decoded.email;
+      this.User.country = decoded.country;
+      this.User.city = decoded.city;
+      this.User.educationInstitute = decoded.educationInstitute;
+      this.User.educationType = decoded.educationType;
+      this.User.educationCourse = decoded.educationCourse;
+    },
+  },
+};
 </script>
