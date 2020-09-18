@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h2 class="text-white text-center mt-2">Alterar perfil</h2>
-    <form v-if="changePassword==false" class="mt-4">
+    <form @submit.prevent="updateUser" v-if="changePassword==false" class="mt-4">
       <div class="input-group input-group-lg mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text">
@@ -125,7 +125,7 @@
       <a @click="changePass" class="btn btn-primary btn-block mt-3">Alterar senha</a>
     </form>
 
-    <form v-if="changePassword==true" class="mt-4">
+    <form @submit.prevent="updatePassword" v-if="changePassword==true" class="mt-4">
       <div class="input-group input-group-lg mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text">
@@ -188,7 +188,7 @@ import decode from "jwt-decode";
 export default {
   data() {
     return {
-      changePassword: false,
+      changePassword: false, //False como padrão para mostrar o formulário de dados
       User: {
         name: null,
         email: null,
@@ -221,13 +221,19 @@ export default {
       this.User.educationType = decoded.educationType;
       this.User.educationCourse = decoded.educationCourse;
     },
-    changePass: async function () {
+    changePass: async function () { //Muda a visualização entre o formulário de senha ou dos dados
       if (this.changePassword == false) {
         this.changePassword = true;
       } else {
         this.changePassword = false;
       }
     },
+    updateUser: async function (){
+      console.log(this.User); //log para verificar se dados estão sendo passados
+    },
+    updatePassword: async function (){
+      console.log(this.Password); //log para verificar se dados estão sendo passados
+    }
   },
 };
 </script>
