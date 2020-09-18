@@ -9,7 +9,7 @@
       </div>  
 
       <!-- Conteúdo -->
-      <div v-if="questions.length > 0" class="container"> 
+      <div v-if="questions.length > 0" class="container" :class="formBlock ? 'disable-form' : ''"> 
         <!-- Titulo -->
         <div class="col-12 py-5">
           <p class="text-light text-center" style="font-size: 1.2rem">
@@ -27,17 +27,18 @@
         <!-- Ações -->
         <div class="pt-2 text-center">
           <button v-if="selectedAnswer != null" class="btn btn-success p2" @click="validateQuestion">Conferir</button>
-        </div>
-
-        <!-- Notificações -->
-        <div v-if="showSheet" :class="answerValidation ? ['fixed-bottom bg-success'] : ['fixed-bottom bg-danger']">
-          <div class="text-light text-center py-5">
-              <i class="fas fa-check-circle fa-3x mb-2"></i>
-              <h4>Você {{answerValidation ? 'acertou' : 'errou' }}!</h4>
-              <button class="btn btn-outline-light mt-4" @click="nextQuestion">PROXIMA PERGUNTA</button>
-          </div>
-        </div> 
+        </div>    
       </div>
+
+      <!-- Notificações -->
+      <div v-if="showSheet" :class="answerValidation ? ['fixed-bottom bg-success'] : ['fixed-bottom bg-danger']">
+        <div class="text-light text-center py-5">
+            <i class="fas fa-check-circle fa-3x mb-2"></i>
+            <h4>Você {{answerValidation ? 'acertou' : 'errou' }}!</h4>
+            <button class="btn btn-outline-light mt-4" @click="nextQuestion">PROXIMA PERGUNTA</button>
+        </div>
+      </div>
+
     </div>
 </template>
 
@@ -58,7 +59,8 @@ export default {
       currentScore: 0,
       selectedAnswer: null,
       showSheet: false,
-      loading: true
+      loading: true,
+      formBlock: false
     }
   },
   async mounted() {
@@ -81,6 +83,7 @@ export default {
       });
     },
     validateQuestion: function () {
+      this.formBlock = true;
       if (this.selectedAnswer == 0) { // 0 sempre será o id de alternativa correta
         this.answerValidation = true;
         this.currentScore++;
@@ -91,6 +94,7 @@ export default {
       }
     },
     nextQuestion: function () {
+      this.formBlock = false;
       this.showSheet = false;
       this.selectedAnswer = null;
       this.answerValidation = null;
@@ -107,6 +111,11 @@ export default {
 </script>
 
 <style>
+.disable-form {
+  pointer-events: none;
+  user-select: none;
+}
+
 .btn-group-vertical > label {
   border: none;
   border-radius: 5px !important;
