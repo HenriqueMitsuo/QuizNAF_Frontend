@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h2 class="text-white text-center mt-2">Alterar perfil</h2>
-    <form class="mt-4">
+    <form v-if="changePassword==false" class="mt-4">
       <div class="input-group input-group-lg mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text">
@@ -121,8 +121,12 @@
           required
         />
       </div>
-      <!-- Colocar senha para salvar -->
-      <div class="input-group input-group-lg m2b-3">
+      <button type="submit" class="btn btn-success btn-block mt-3">Salvar</button>
+      <a @click="changePass" class="btn btn-primary btn-block mt-3">Alterar senha</a>
+    </form>
+
+    <form v-if="changePassword==true" class="mt-4">
+      <div class="input-group input-group-lg mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text">
             <i class="fas fa-lock"></i>
@@ -130,14 +134,50 @@
         </div>
         <input
           type="password"
+          v-model="Password.oldPassword"
           class="form-control text-light"
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
-          placeholder="Digite a senha para salvar"
+          placeholder="Senha atual"
+          required
         />
       </div>
 
-      <button type="submit" class="btn btn-success btn-block mt-3">Salvar</button>
+      <div class="input-group input-group-lg mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fas fa-lock"></i>
+          </span>
+        </div>
+        <input
+          type="password"
+          v-model="Password.newPassword"
+          class="form-control text-light"
+          aria-label="Large"
+          aria-describedby="inputGroup-sizing-sm"
+          placeholder="Nova senha"
+          required
+        />
+      </div>
+
+      <div class="input-group input-group-lg mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fas fa-lock"></i>
+          </span>
+        </div>
+        <input
+          type="password"
+          v-model="Password.newPassword2"
+          class="form-control text-light"
+          aria-label="Large"
+          aria-describedby="inputGroup-sizing-sm"
+          placeholder="Repita nova senha"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-success btn-block mt-3">Alterar senha</button>
+      <a @click="changePass" class="btn btn-primary btn-block mt-3">Voltar</a>
     </form>
   </div>
 </template>
@@ -148,6 +188,7 @@ import decode from "jwt-decode";
 export default {
   data() {
     return {
+      changePassword: false,
       User: {
         name: null,
         email: null,
@@ -156,6 +197,11 @@ export default {
         educationInstitute: null,
         educationType: null,
         educationCourse: null,
+      },
+      Password: {
+        oldPassword: null,
+        newPassword: null,
+        newPassword2: null,
       },
     };
   },
@@ -174,6 +220,13 @@ export default {
       this.User.educationInstitute = decoded.educationInstitute;
       this.User.educationType = decoded.educationType;
       this.User.educationCourse = decoded.educationCourse;
+    },
+    changePass: async function () {
+      if (this.changePassword == false) {
+        this.changePassword = true;
+      } else {
+        this.changePassword = false;
+      }
     },
   },
 };
