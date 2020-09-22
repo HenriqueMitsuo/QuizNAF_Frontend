@@ -1,7 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Login from "../views/Login.vue";
-import { checkAuth } from "../services/AuthService";
+
+import authGuard from "./guards/AuthGuard";
 
 Vue.use(VueRouter);
 
@@ -33,6 +34,12 @@ const routes = [
     name: "Profile",
     component: () => import("../views/Profile.vue"),
     meta: { requiresAuth: true }
+  },
+  {
+    path: "/Admin",
+    name: "Admin",
+    component: () => import("../views/Admin.vue"),
+    meta: { requiresAuth: true }
   }
 ];
 
@@ -42,12 +49,7 @@ const router = new VueRouter({
 
 // Route Guards
 router.beforeEach((to, from, next) => {
-  if ((to.matched.some(record => record.meta.requiresAuth))) {
-    // Essa rota requer auth. Se não estiver logado, redirecionar para tela de login
-    checkAuth() ? next() : next('/');
-  } else {
-    next();
-  }
+  authGuard(to, from, next);
 });
 
 export default router;

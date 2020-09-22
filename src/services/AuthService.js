@@ -14,7 +14,7 @@ export function signOut() {
     console.log("Auth: usuário desconectado");
 }
 
-export function checkAuth () {
+export function checkAuth() {
   const token = localStorage.getItem('token');
 
   if (!token)
