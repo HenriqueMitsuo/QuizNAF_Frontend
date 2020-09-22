@@ -32,8 +32,6 @@
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
           placeholder="E-mail"
-          value
-          disabled
         />
       </div>
 
@@ -184,11 +182,14 @@
 
 <script>
 import decode from "jwt-decode";
+import { ApiService as UserService } from "@/services/ApiService";
 
 export default {
   data() {
     return {
+      userService: new UserService("users"),
       changePassword: false, //False como padrão para mostrar o formulário de dados
+      id: null, //ID do usuário
       User: {
         name: null,
         email: null,
@@ -197,6 +198,7 @@ export default {
         educationInstitute: null,
         educationType: null,
         educationCourse: null,
+        role: null,
       },
       Password: {
         oldPassword: null,
@@ -209,9 +211,11 @@ export default {
     this.fillModel(); //Preenche os inputs com os dados do token
   },
   methods: {
-    fillModel: async function () {
+    fillModel: function () {
       const token = localStorage.getItem("token");
       var decoded = decode(token);
+
+      this.id = decoded.id; //Pega o ID do token e passa para a variavel
 
       this.User.name = decoded.name;
       this.User.email = decoded.email;
@@ -220,20 +224,22 @@ export default {
       this.User.educationInstitute = decoded.educationInstitute;
       this.User.educationType = decoded.educationType;
       this.User.educationCourse = decoded.educationCourse;
+      this.User.role = decoded.role;
     },
-    changePass: async function () { //Muda a visualização entre o formulário de senha ou dos dados
+    changePass: function () {
+      //Muda a visualização entre o formulário de senha ou dos dados
       if (this.changePassword == false) {
         this.changePassword = true;
       } else {
         this.changePassword = false;
       }
     },
-    updateUser: async function (){
-      console.log(this.User); //log para verificar se dados estão sendo passados
+    updateUser: async function () {
+      await this.userService.updateOne(this.id, this.User);
     },
-    updatePassword: async function (){
+    updatePassword: async function () {
       console.log(this.Password); //log para verificar se dados estão sendo passados
-    }
+    },
   },
 };
 </script>
