@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Login from "../views/Login.vue";
 
 import authGuard from "./guards/AuthGuard";
+import roleGuard from "./guards/RoleGuard";
 
 Vue.use(VueRouter);
 
@@ -21,25 +22,25 @@ const routes = [
     path: "/Home",
     name: "Home",
     component: () => import("../views/Home.vue"),
-    meta: { requiresAuth: true }
+    meta: { requiresAuth: true, requireRoles: [0, 1, 2] }
   },
   {
     path: "/Question/:id",
     name: "Question",
     component: () => import("../views/Question.vue"),
-    meta: { requiresAuth: true }
+    meta: { requiresAuth: true, requireRoles: [0, 1, 2] }
   },
   {
     path: "/Profile",
     name: "Profile",
     component: () => import("../views/Profile.vue"),
-    meta: { requiresAuth: true }
+    meta: { requiresAuth: true, requireRoles: [0, 1, 2] }
   },
   {
     path: "/Admin",
     name: "Admin",
     component: () => import("../views/Admin.vue"),
-    meta: { requiresAuth: true }
+    meta: { requiresAuth: true, requireRoles: [2] }
   }
 ];
 
@@ -50,6 +51,7 @@ const router = new VueRouter({
 // Route Guards
 router.beforeEach((to, from, next) => {
   authGuard(to, from, next);
+  roleGuard(to, from, next);
 });
 
 export default router;

@@ -32,3 +32,9 @@ export function checkAuth() {
     return false
   }
 }
+
+export function checkRole() {
+  const token = localStorage.getItem('token');
+  const { role : roleId } = decode(token);
+  return roleId;
+}
