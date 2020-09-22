@@ -10,7 +10,7 @@
       </div>   
 
       <!-- Conteúdo -->
-      <div class="card-deck mt-4">
+      <div class="card-deck mt-4 row justify-content-center">
         <Topic v-for="quiz in quizzes" :key="quiz.id" :quiz="quiz" />
       </div>
     </div>
