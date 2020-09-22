@@ -176,6 +176,7 @@ export default {
         educationType: null,
         educationCourse: null,
         password: null,
+        role: 0,
       },
     };
   },
