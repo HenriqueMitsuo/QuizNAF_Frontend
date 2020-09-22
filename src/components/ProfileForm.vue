@@ -166,7 +166,7 @@
         </div>
         <input
           type="password"
-          v-model="Password.newPassword2"
+          v-model="RepeatnewPassword"
           class="form-control text-light"
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
@@ -190,6 +190,7 @@ export default {
       userService: new UserService("users"),
       changePassword: false, //False como padrão para mostrar o formulário de dados
       id: null, //ID do usuário
+      RepeatnewPassword: null, //Apenas verifica se o usuario repetiu a senha corretamente
       User: {
         name: null,
         email: null,
@@ -203,12 +204,11 @@ export default {
       Password: {
         oldPassword: null,
         newPassword: null,
-        newPassword2: null,
       },
     };
   },
   async mounted() {
-    this.fillModel(); //Preenche os inputs com os dados do token
+    this.fillModel(); //Preenche os inputs e algumas variaveis com os dados do token
   },
   methods: {
     fillModel: function () {
@@ -218,7 +218,7 @@ export default {
       this.id = decoded.id; //Pega o ID do token e passa para a variavel
 
       this.User.name = decoded.name;
-      this.User.email = decoded.email;
+      this.User.email = decoded.email; //Salva o email atual também numa variavel para comparação ao dar update
       this.User.country = decoded.country;
       this.User.city = decoded.city;
       this.User.educationInstitute = decoded.educationInstitute;
@@ -235,10 +235,24 @@ export default {
       }
     },
     updateUser: async function () {
-      await this.userService.updateOne(this.id, this.User);
+      try {
+        await this.userService.updateOne(this.id, this.User);
+        this.$toasted.global.updateprofile_success();
+      } catch (error) {
+        console.log("Server error: ${error}");
+        this.$toasted.global.updateprofile_error();
+      }
     },
     updatePassword: async function () {
-      console.log(this.Password); //log para verificar se dados estão sendo passados
+      //Se novas senhas conferem
+      if (this.Password.newPassword == this.newPassword2) {
+        //Senhas conferem
+        //console.log(this.Password); //log para verificar se dados estão sendo passados
+        this.$toasted.global.updatepassword_success();
+      } else {
+        //Senhas não conferem
+        this.$toasted.global.updatepassword_error();
+      }
     },
   },
 };

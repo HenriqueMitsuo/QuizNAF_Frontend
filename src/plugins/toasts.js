@@ -25,3 +25,22 @@ Vue.toasted.register('register_error', 'Senhas não conferem!',{
     duration: 1000,
 });
 
+//Toats usados em ProfileForm.Vue
+//Para dados do usuário
+Vue.toasted.register('updateprofile_success', 'Dados atualizados com sucesso!',{
+    type : 'success',
+    duration: 1000,
+});
+Vue.toasted.register('updateprofile_error', 'Ops! Este email invalido ou já está em uso!',{
+    type : 'error',
+    duration: 1000,
+});
+//Para senha do usuário
+Vue.toasted.register('updatepassword_success', 'Senha alterada com sucesso!',{
+    type : 'success',
+    duration: 1000,
+});
+Vue.toasted.register('updatepassword_error', 'Ops! Senhas não conferem!',{
+    type : 'error',
+    duration: 1000,
+})
