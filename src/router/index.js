@@ -55,9 +55,9 @@ const routes = [
     meta: { requiresAuth: true, requireRoles: [1, 2] }
   },
   {
-    path: "/Quiz/:id",
-    name: "Quiz",
-    component: () => import("../views/Quiz.vue"),
+    path: "/QuestionList/:id",
+    name: "QuestionList",
+    component: () => import("../views/QuestionList.vue"),
     meta: { requiresAuth: true, requireRoles: [1, 2] }
   }
 ];
