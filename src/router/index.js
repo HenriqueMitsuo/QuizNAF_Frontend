@@ -53,6 +53,12 @@ const routes = [
     name: "Create",
     component: () => import("../views/Create.vue"),
     meta: { requiresAuth: true, requireRoles: [1, 2] }
+  },
+  {
+    path: "/Quiz/:id",
+    name: "Quiz",
+    component: () => import("../views/Quiz.vue"),
+    meta: { requiresAuth: true, requireRoles: [1, 2] }
   }
 ];
 

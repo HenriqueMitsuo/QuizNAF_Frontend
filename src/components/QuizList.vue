@@ -4,7 +4,7 @@
       <div class="card-body">
         <h5 class="card-title">{{ quiz.title }}</h5>
         <button class="btn btn-warning">
-          <i class="fas fa-pen"></i>
+          <i class="fas fa-pen" @click="editQuiz(quiz.id)"></i>
         </button>
         <button class="btn btn-success mx-2" @click="goToQuiz(quiz.id)">
           <i class="fas fa-play"></i>
@@ -20,6 +20,9 @@ export default {
   methods: {
     goToQuiz: function (id) {
       this.$router.push({ name: "Question", params: { id: id } });
+    },
+    editQuiz: function (id) {
+      this.$router.push({ name: "Quiz", params: { id: id } });
     },
   },
 };
