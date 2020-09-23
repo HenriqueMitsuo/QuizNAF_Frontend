@@ -2,6 +2,7 @@
     <div class="app">
         <Sidebar />
         <CreateQuiz />
+        <!-- Usar a mesma view para criar as Questions depois -->
     </div> 
 </template>
 
