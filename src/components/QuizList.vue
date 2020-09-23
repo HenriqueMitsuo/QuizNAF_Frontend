@@ -3,15 +3,19 @@
     <div class="card bg-blue-container text-white mx-0">
       <div class="card-body">
         <h5 class="card-title">{{ quiz.title }}</h5>
-        <button class="btn btn-primary mr-2">
-          <i class="fas fa-question" @click="editQuestions(quiz.id)"></i>
+        <!-- Visualizar e editar questões -->
+        <button class="btn btn-primary mr-2" @click="editQuestions(quiz.id)">
+          <i class="fas fa-question"></i>
         </button>
-        <button class="btn btn-warning mx-2">
-          <i class="fas fa-pen" @click="editQuiz(quiz.id)"></i>
+        <!-- Editar Quiz (Titulo, Categoria, Descrição...) -->
+        <button class="btn btn-warning mx-2" @click="editQuiz(quiz.id)">
+          <i class="fas fa-pen"></i>
         </button>
+        <!-- Dar play no quiz diretamente -->
         <button class="btn btn-success mx-2" @click="goToQuiz(quiz.id)">
           <i class="fas fa-play"></i>
         </button>
+        <!-- Deletar Quiz -->
         <button class="btn btn-danger mx-2" @click="deleteQuiz(quiz.id)">
           <i class="fas fa-trash"></i>
         </button>
