@@ -31,6 +31,18 @@
           <i class="fas fa-question-circle mr-3"></i>Sobre
         </a>
       </div>
+      <!-- (Provisório) / Adicionar IF com o role -->
+      <div class="nav-link">
+        <router-link to="/Admin">
+          <i class="fas fa-home mr-3"></i>Admin
+        </router-link>
+      </div>
+
+      <div class="nav-link">
+        <router-link to="/Professor">
+          <i class="fas fa-home mr-3"></i>Criar
+        </router-link>
+      </div>
 
       <div class="nav-link mt-4">
         <button class="btn bg-app-primary btn-lg text-light" style="width: 200px" @click="logOff">
