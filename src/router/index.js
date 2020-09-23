@@ -11,14 +11,14 @@ const routes = [
   {
     path: "/",
     name: "Login",
-    component: Login,
+    component: Login
   },
   {
     path: "/Register",
     name: "Register",
     component: () => import("../views/Register.vue")
   },
-  {  
+  {
     path: "/Home",
     name: "Home",
     component: () => import("../views/Home.vue"),
@@ -41,6 +41,12 @@ const routes = [
     name: "Admin",
     component: () => import("../views/Admin.vue"),
     meta: { requiresAuth: true, requireRoles: [2] }
+  },
+  {
+    path: "/Create",
+    name: "Create",
+    component: () => import("../views/Create.vue"),
+    meta: { requiresAuth: true, requireRoles: [1, 2] }
   }
 ];
 
