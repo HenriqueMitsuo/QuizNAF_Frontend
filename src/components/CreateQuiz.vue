@@ -33,6 +33,7 @@
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
           placeholder="Categoria"
+          required
         />
       </div>
       <!-- Descrição do quiz  -->
@@ -59,7 +60,7 @@
             <i class="fas fa-language"></i>
           </span>
         </div>
-        <select class="form-control text-light" v-model="QuizData.lang">
+        <select class="form-control text-light" v-model="QuizData.lang" required>
           <option value="pt-br">PT-BR</option>
           <option value="es">ES</option>
         </select>
@@ -70,9 +71,12 @@
   </div>
 </template>
 <script>
+import { ApiService as QuizService } from "@/services/ApiService";
+
 export default {
   data() {
     return {
+      quizService: new QuizService("quiz"),
       QuizData: {
         title: null,
         category: null,
@@ -82,8 +86,10 @@ export default {
     };
   },
   methods: {
-    createQuiz: function () {
-      console.log(this.QuizData); //Log para testes
+    createQuiz: async function () {
+      await this.quizService.createOne(this.QuizData);
+      this.$toasted.global.createQuiz_success();
+      //Redirecionar para pagina home do professor
     },
   },
 };
