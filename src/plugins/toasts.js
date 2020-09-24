@@ -45,8 +45,14 @@ Vue.toasted.register('updatepassword_error', 'Ops! Senhas não conferem!',{
     duration: 1000,
 })
 
-//Toasts usado no criador de QuizCreate.vue
+//Toast usado no componente CreateQuiz.vue
 Vue.toasted.register('createQuiz_success', 'Quiz criado com sucesso!',{
+    type : 'success',
+    duration: 1000,
+});
+
+//Totast usado no componente CreateQuestion.vue
+Vue.toasted.register('createQuestion_success', 'Questão criada com sucesso!',{
     type : 'success',
     duration: 1000,
 });
