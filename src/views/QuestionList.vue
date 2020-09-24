@@ -3,10 +3,10 @@
     <Sidebar />
     <div class="container text-light">
       <h3 class="text-center my-2">Quiz</h3>
-      <QuizList :quiz="quiz" />
+      <QuizTitle :quiz="quiz" />
       <h3 class="text-center my-2">Questões</h3>
       <QuestionTitle v-for="question in questionsData" :key="question.id" :question="question" />
-      <button type="submit" class="btn btn-success btn-block my-2" @click="createQuestion()">
+      <button type="submit" class="btn btn-success btn-block my-2" @click="createQuestion(quiz_id)">
         Adicionar pergunta
       </button>
     </div>
@@ -16,17 +16,18 @@
 <script>
 import { ApiService as QuestionsService } from "@/services/ApiService";
 import Sidebar from "@/components/Sidebar";
-import QuizList from "@/components/QuizList";
+import QuizTitle from "@/components/QuizTitle";
 import QuestionTitle from "@/components/QuestionTitle";
 
 export default {
   components: {
     Sidebar,
-    QuizList,
+    QuizTitle,
     QuestionTitle,
   },
   data() {
     return {
+      quiz_id: this.$route.params.id,
       questionsService: new QuestionsService("questions"),
       quizService: new QuestionsService("quiz"),
       questionsData: [],
@@ -46,8 +47,8 @@ export default {
     LoadQuiz: async function () {
       this.quiz = await this.quizService.queryOne(this.$route.params.id);
     },
-    createQuestion: function () {
-      console.log("A ser desenvolvido");
+    createQuestion: function (id) {
+      this.$router.push({ name: "Create", params: { id: id } });
     },
   },
 };

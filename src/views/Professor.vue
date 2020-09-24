@@ -3,20 +3,22 @@
     <Sidebar />
     <div class="container text-light">
       <h3 class="text-center my-2">Quizzes</h3>
-      <QuizList v-for="quiz in quizzes" :key="quiz.id" :quiz="quiz" />
-      <button type="submit" class="btn btn-success btn-block" @click="createQuiz()">Criar Quiz</button>
+      <QuizTitle v-for="quiz in quizzes" :key="quiz.id" :quiz="quiz" />
+      <button type="submit" class="btn btn-success btn-block" @click="createQuiz()">
+        Criar Quiz
+      </button>
     </div>
   </div>
 </template>
 <script>
 import { ApiService as QuizService } from "@/services/ApiService";
 import Sidebar from "@/components/Sidebar.vue";
-import QuizList from "@/components/QuizList.vue";
+import QuizTitle from "@/components/QuizTitle.vue";
 
 export default {
   components: {
     Sidebar,
-    QuizList,
+    QuizTitle,
   },
   data() {
     return {
