@@ -2,6 +2,14 @@
   <div class="app">
     <Sidebar />
     <div class="container text-light">
+      <!-- Spinner -->
+      <div v-if="loading" class="text-center mt-4">
+        <div class="spinner-border text-light" role="status">
+          <span class="sr-only">Carregando...</span>
+        </div>
+      </div>
+
+      <!-- Conteúdo -->
       <h3 class="text-center my-2">Quiz</h3>
       <QuizTitle :quiz="quiz" />
       <h3 class="text-center my-2">Questões</h3>
@@ -32,20 +40,22 @@ export default {
       quizService: new QuestionsService("quiz"),
       questionsData: [],
       quiz: [],
+      loading: true,
     };
   },
   async mounted() {
     this.LoadQuestions(); //Faz a query das questions do quiz atual
     this.LoadQuiz(); //Faz a query para o quiz atual
+    this.loading = false;
   },
   methods: {
     LoadQuestions: async function () {
       this.questionsData = await this.questionsService.queryFilter({
-        quiz_id: this.$route.params.id,
+        quiz_id: this.quiz_id,
       });
     },
     LoadQuiz: async function () {
-      this.quiz = await this.quizService.queryOne(this.$route.params.id);
+      this.quiz = await this.quizService.queryOne(this.quiz_id);
     },
     createQuestion: function (id) {
       this.$router.push({ name: "Create", params: { id: id } });

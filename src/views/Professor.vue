@@ -2,6 +2,14 @@
   <div class="app">
     <Sidebar />
     <div class="container text-light">
+      <!-- Spinner -->
+      <div v-if="loading" class="text-center mt-4">
+        <div class="spinner-border text-light" role="status">
+          <span class="sr-only">Carregando...</span>
+        </div>
+      </div>
+
+      <!-- Conteúdo -->
       <h3 class="text-center my-2">Quizzes</h3>
       <QuizTitle v-for="quiz in quizzes" :key="quiz.id" :quiz="quiz" />
       <button type="submit" class="btn btn-success btn-block" @click="createQuiz">
