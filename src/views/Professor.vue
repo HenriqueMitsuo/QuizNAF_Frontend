@@ -4,7 +4,7 @@
     <div class="container text-light">
       <h3 class="text-center my-2">Quizzes</h3>
       <QuizTitle v-for="quiz in quizzes" :key="quiz.id" :quiz="quiz" />
-      <button type="submit" class="btn btn-success btn-block" @click="createQuiz()">
+      <button type="submit" class="btn btn-success btn-block" @click="createQuiz">
         Criar Quiz
       </button>
     </div>
@@ -34,7 +34,7 @@ export default {
   },
   methods: {
     createQuiz: function () {
-      this.$router.push("/Create");
+      this.$router.push({ name: "Create", params: { id: 0 } }); //Passando valor 0 para criar um Quiz
     },
   },
 };
