@@ -22,7 +22,7 @@
       <!-- Categoria do quiz -->
       <div class="input-group input-group-lg mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text" style="background: transparent;">
+          <span class="input-group-text" style="background: transparent">
             <i class="fas fa-align-left"></i>
           </span>
         </div>
@@ -56,7 +56,7 @@
       <!-- Idioma do quiz -->
       <div class="input-group input-group-lg mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text" style="background: transparent;">
+          <span class="input-group-text" style="background: transparent">
             <i class="fas fa-language"></i>
           </span>
         </div>
@@ -88,6 +88,7 @@ export default {
   methods: {
     createQuiz: async function () {
       await this.quizService.createOne(this.QuizData);
+      this.$router.push("/Professor/");
       this.$toasted.global.createQuiz_success();
       //Redirecionar para pagina home do professor
     },
