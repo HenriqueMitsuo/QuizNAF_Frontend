@@ -19,19 +19,39 @@
 
         <!-- Alternativas -->
         <div class="btn-group-vertical btn-group-toggle col-12">
-          <label v-for="answer in questions[currentQuestion].answers" :key="answer.id" :class="[{ active: selectedAnswer === answer.id }, 'btn btn-secondary bg-app-primary mb-3']">
-            <input v-model="selectedAnswer" :value="answer.id" type="radio" name="options" autocomplete="off" checked> {{ answer.text }}
+          <label 
+            v-for="answer in questions[currentQuestion].answers" 
+            :key="answer.id" 
+            :class="[{ active: selectedAnswer === answer.id }, 'btn btn-secondary bg-app-primary mb-3']">
+            <input 
+              v-model="selectedAnswer" 
+              :value="answer.id" 
+              type="radio" 
+              name="options" 
+              autocomplete="off" 
+              checked />
+              {{ answer.text }}
           </label>
-        </div>  
+        </div>
 
         <!-- Ações -->
         <div class="pt-2 text-center">
-          <button v-if="selectedAnswer != null" class="btn btn-success p2" @click="validateQuestion">Conferir</button>
+          <button 
+            v-if="selectedAnswer != null" 
+            class="btn btn-success p2" 
+            @click="validateQuestion">
+            Conferir
+          </button>
         </div>    
       </div>
 
       <!-- Alertas de validação -->
-      <QuestionAlerts v-on:nextQuestion="nextQuestion" :showSheet="showSheet" :answerValidation="answerValidation" />
+      <transition name="fade-up">
+        <QuestionAlerts 
+          v-on:nextQuestion="nextQuestion" 
+          :showSheet="showSheet" 
+          :answerValidation="answerValidation" />
+      </transition>
     </div>
 </template>
 
@@ -121,5 +141,16 @@ export default {
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
+}
+
+.fade-up-enter-active {
+  transition: all 0.7s ease;
+}
+.fade-up-leave-active {
+  transition: all 0.7s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.fade-up-enter, .slide-fade-leave-to {
+  transform: translateY(25px);
+  opacity: 0;
 }
 </style>
