@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h2 class="text-white text-center mt-2">Alterar perfil</h2>
-    <form @submit.prevent="updateUser" v-if="changePassword==false" class="mt-4">
+    <form @submit.prevent="updateUser" v-if="changePassword == false" class="mt-4">
       <div class="input-group input-group-lg mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text">
@@ -21,7 +21,7 @@
       <!-- E-mail será alteravel? -->
       <div class="input-group input-group-lg mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text" style="background: transparent;">
+          <span class="input-group-text" style="background: transparent">
             <i class="fas fa-envelope"></i>
           </span>
         </div>
@@ -54,7 +54,7 @@
 
       <div class="input-group input-group-lg mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text" style="background: transparent;">
+          <span class="input-group-text" style="background: transparent">
             <i class="fas fa-building"></i>
           </span>
         </div>
@@ -123,7 +123,8 @@
       <a @click="changePass" class="btn btn-primary btn-block mt-3">Alterar senha</a>
     </form>
 
-    <form @submit.prevent="updatePassword" v-if="changePassword==true" class="mt-4">
+    <form @submit.prevent="updatePassword" v-if="changePassword == true" class="mt-4">
+      
       <div class="input-group input-group-lg mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text">
@@ -132,24 +133,7 @@
         </div>
         <input
           type="password"
-          v-model="Password.oldPassword"
-          class="form-control text-light"
-          aria-label="Large"
-          aria-describedby="inputGroup-sizing-sm"
-          placeholder="Senha atual"
-          required
-        />
-      </div>
-
-      <div class="input-group input-group-lg mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text">
-            <i class="fas fa-lock"></i>
-          </span>
-        </div>
-        <input
-          type="password"
-          v-model="Password.newPassword"
+          v-model="Password.password"
           class="form-control text-light"
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
@@ -188,6 +172,7 @@ export default {
   data() {
     return {
       userService: new UserService("users"),
+      passService: new UserService("passwords"),
       changePassword: false, //False como padrão para mostrar o formulário de dados
       id: null, //ID do usuário
       RepeatnewPassword: null, //Apenas verifica se o usuario repetiu a senha corretamente
@@ -202,8 +187,7 @@ export default {
         role: null,
       },
       Password: {
-        oldPassword: null,
-        newPassword: null,
+        password: null,
       },
     };
   },
@@ -245,9 +229,9 @@ export default {
     },
     updatePassword: async function () {
       //Se novas senhas conferem
-      if (this.Password.newPassword == this.newPassword2) {
+      if (this.Password.password == this.RepeatnewPassword) {
         //Senhas conferem
-        //console.log(this.Password); //log para verificar se dados estão sendo passados
+        await this.passService.updateOne(this.id, this.Password);
         this.$toasted.global.updatepassword_success();
       } else {
         //Senhas não conferem
