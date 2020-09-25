@@ -6,22 +6,24 @@
         <button class="btn btn-warning mx-2" @click="editQuestion(question.id)">
           <i class="fas fa-pen"></i>
         </button>
-        <button 
-          class="btn btn-danger mx-2" 
-          data-toggle="modal" 
-          :data-target="`#deleteThis${question.id}`">
+        <button
+          class="btn btn-danger mx-2"
+          data-toggle="modal"
+          :data-target="`#deleteThis${question.id}`"
+        >
           <i class="fas fa-trash"></i>
         </button>
       </div>
     </div>
-    <!-- Modal -->
+    <!-- Modal para deletar question -->
     <div
       class="modal fade"
-      :id='`deleteThis${question.id}`'
+      :id="`deleteThis${question.id}`"
       tabindex="-1"
       role="dialog"
       aria-labelledby="deleteThisTitle"
-      aria-hidden="true">
+      aria-hidden="true"
+    >
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="bg-app-primary text-center text-white modal-content">
           <div class="modal-body">
@@ -33,7 +35,8 @@
               type="button"
               class="btn btn-success mx-2"
               data-dismiss="modal"
-              @click="deleteQuestion(question.id)">
+              @click="deleteQuestion(question.id)"
+            >
               Apagar
             </button>
             <button type="button" class="btn btn-danger mx-2" data-dismiss="modal">Cancelar</button>
@@ -45,6 +48,8 @@
 </template>
 
 <script>
+import { ApiService as QuestionsService } from "@/services/ApiService";
+
 export default {
   props: {
     question: {
@@ -54,14 +59,21 @@ export default {
       },
     },
   },
+  data() {
+    return {
+      questionsService: new QuestionsService("questions"),
+    };
+  },
   methods: {
     //A criar pagina para editar as informações da questão
     editQuestion: function (id) {
       console.log(id);
     },
     //Apagar quiz depois de confirmar
-    deleteQuestion: function (id) {
-      console.log(id);
+    deleteQuestion: async function (id) {
+      await this.questionsService.deleteOne(id);
+      location.reload(); //recarrega a pagina
+      this.$toasted.global.delete_success();
     },
   },
 };
