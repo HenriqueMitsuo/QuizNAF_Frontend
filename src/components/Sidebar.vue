@@ -10,15 +10,11 @@
       <a href="javascript:void(0)" class="closebtn" v-on:click="closeNav">&times;</a>
 
       <div class="nav-link">
-        <router-link to="/Home">
-          <i class="fas fa-home mr-3"></i>Home
-        </router-link>
+        <router-link to="/Home"> <i class="fas fa-home mr-3"></i>Home </router-link>
       </div>
 
       <div class="nav-link">
-        <router-link to="/Profile">
-          <i class="fas fa-user-circle mr-3"></i>Perfil
-        </router-link>
+        <router-link to="/Profile"> <i class="fas fa-user-circle mr-3"></i>Perfil </router-link>
       </div>
 
       <div class="nav-link">
@@ -31,17 +27,13 @@
           <i class="fas fa-question-circle mr-3"></i>Sobre
         </a>
       </div>
-      <!-- (Provisório) / Adicionar IF com o role -->
-      <div class="nav-link">
-        <router-link to="/Admin">
-          <i class="fas fa-home mr-3"></i>Admin
-        </router-link>
+      <!-- Se usuario tiver role 2, será mostrado... -->
+      <div class="nav-link" v-if="role > 1">
+        <router-link to="/Admin"> <i class="fas fa-users-cog mr-3"></i>Admin </router-link>
       </div>
-
-      <div class="nav-link">
-        <router-link to="/Professor">
-          <i class="fas fa-home mr-3"></i>Criar
-        </router-link>
+      <!-- Se usuario tiver role 1 ou acima, será mostrado... -->
+      <div class="nav-link" v-if="role > 0">
+        <router-link to="/Professor"> <i class="fas fa-plus-circle mr-3"></i>Criar </router-link>
       </div>
 
       <div class="nav-link mt-4">
@@ -55,6 +47,7 @@
 </template>
 
 <script>
+import { checkRole } from "@/services/AuthService";
 import AboutDialog from "@/components/AboutDialog.vue";
 import { signOut } from "@/services/AuthService";
 
@@ -65,7 +58,11 @@ export default {
   data() {
     return {
       collapsed: true,
+      role: null,
     };
+  },
+  async mounted() {
+    this.getRole(); //Pega o atributo role do usuário
   },
   methods: {
     openNav: function () {
@@ -77,6 +74,9 @@ export default {
     logOff: function () {
       signOut();
       this.$router.push("/");
+    },
+    getRole: async function () {
+      this.role = await checkRole();
     },
   },
 };
