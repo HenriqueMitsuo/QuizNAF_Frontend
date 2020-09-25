@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h3 class="text-white text-center mt-2">Atualizar dados do quiz</h3>
-    <form class="mt-4">
+    <form class="mt-4" @submit.prevent="updateQuiz">
       <!-- Titulo do quiz -->
       <div class="input-group input-group-lg mb-3">
         <div class="input-group-prepend">
@@ -94,6 +94,11 @@ export default {
   methods: {
     autoFill: async function (id) {
       this.QuizData = await this.quizService.queryOne(id);
+    },
+    updateQuiz: async function () {
+      await this.quizService.updateOne(this.quiz_id, this.QuizData);
+      this.$router.push("/Professor/");
+      this.$toasted.global.updateprofile_success(); //Vai escrever na tela "Dados atualizados com sucesso"
     },
   },
 };
