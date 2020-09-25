@@ -55,6 +55,12 @@ const routes = [
     meta: { requiresAuth: true, requireRoles: [1, 2] }
   },
   {
+    path: "/Edit/:id",
+    name: "Edit",
+    component: () => import("../views/Edit.vue"),
+    meta: { requiresAuth: true, requireRoles: [1, 2] }
+  },
+  {
     path: "/QuestionList/:id",
     name: "QuestionList",
     component: () => import("../views/QuestionList.vue"),
