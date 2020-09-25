@@ -122,18 +122,6 @@
 
       <div class="input-group input-group-lg mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text" style="background: transparent">
-            <i class="fas fa-address-card"></i>
-          </span>
-        </div>
-        <select class="form-control text-light" v-model="User.role" required>
-          <option value="0" default>Sou aluno</option>
-          <option value="1">Sou professor</option>
-        </select>
-      </div>
-
-      <div class="input-group input-group-lg mb-3">
-        <div class="input-group-prepend">
           <span class="input-group-text">
             <i class="fas fa-lock"></i>
           </span>
@@ -188,7 +176,7 @@ export default {
         educationType: null,
         educationCourse: null,
         password: null,
-        role: null,
+        role: 0,
       },
     };
   },
