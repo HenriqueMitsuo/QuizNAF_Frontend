@@ -1,5 +1,14 @@
 <template>
-    <div>
-        <h1>Editar Quiz</h1>
-    </div>
+  <div class="app">
+    <EditQuiz />
+  </div>
 </template>
+
+<script>
+import EditQuiz from "@/components/EditQuiz.vue";
+export default {
+  components: {
+    EditQuiz,
+  },
+};
+</script>

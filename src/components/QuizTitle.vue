@@ -35,7 +35,7 @@ export default {
       this.$router.push({ name: "Question", params: { id: id } });
     },
     editQuiz: function (id) {
-      console.log(id); //A criar pagina para editar as informações do quiz
+      this.$router.push({ name: "Edit", params: { id: id } });
     },
     deleteQuiz: function (id) {
       console.log(id); //Criar alert para confirmar
