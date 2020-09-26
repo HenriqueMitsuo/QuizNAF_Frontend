@@ -77,7 +77,7 @@ export default {
       this.$router.push({ name: "Question", params: { id: id } });
     },
     editQuiz: function (id) {
-      this.$router.push({ name: "Edit", params: { id: id } });
+      this.$router.push({ name: "EditQuiz", params: { id: id } });
     },
     deleteQuiz: async function (id) {
       try {
