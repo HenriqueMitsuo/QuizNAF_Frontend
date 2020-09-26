@@ -58,7 +58,7 @@ export default {
       this.quiz = await this.quizService.queryOne(this.quiz_id);
     },
     createQuestion: function (id) {
-      this.$router.push({ name: "Create", params: { id: id } });
+      this.$router.push({ name: "CreateQuestion", params: { id: id } });
     },
   },
 };
