@@ -67,7 +67,7 @@ export default {
   methods: {
     //A criar pagina para editar as informações da questão
     editQuestion: function (id) {
-      console.log(id);
+      this.$router.push({ name: "EditQuestion", params: { id: id } });
     },
     //Apagar quiz depois de confirmar
     deleteQuestion: async function (id) {
