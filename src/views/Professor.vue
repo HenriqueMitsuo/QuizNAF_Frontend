@@ -12,9 +12,9 @@
       <!-- Conteúdo -->
       <h3 class="text-center my-2">Quizzes</h3>
       <QuizTitle v-for="quiz in quizzes" :key="quiz.id" :quiz="quiz" />
-      <button type="submit" class="btn btn-success btn-block" @click="createQuiz">
+      <router-link type="submit" class="btn btn-success btn-block" :to="{ name: 'CreateQuiz' }">
         Criar Quiz
-      </button>
+      </router-link>
     </div>
   </div>
 </template>
@@ -39,11 +39,6 @@ export default {
     this.quizzes = await this.quizService.queryAll();
     this.loading = false;
     console.log(this.quizzes);
-  },
-  methods: {
-    createQuiz: function () {
-      this.$router.push({ name: "Create", params: { id: 0 } }); //Passando valor 0 para criar um Quiz
-    },
   },
 };
 </script>

@@ -49,6 +49,12 @@ const routes = [
     meta: { requiresAuth: true, requireRoles: [1, 2] }
   },
   {
+    path: "/professor/createQuiz",
+    name: "CreateQuiz",
+    component: () => import("../components/CreateQuiz.vue"),
+    meta: { requiresAuth: true, requireRoles: [1, 2] }
+  },
+  {
     path: "/professor/create/:id",
     name: "Create",
     component: () => import("../views/Create.vue"),
