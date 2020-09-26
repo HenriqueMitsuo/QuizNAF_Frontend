@@ -25,7 +25,7 @@
             <span v-else>ENTRAR</span>      
           </button>
 
-          <router-link tag="button" class="btn btn-outline-light btn-block mt-3" to="/Register">
+          <router-link tag="button" class="btn btn-outline-light btn-block mt-3" :to="{ name: 'Register' }">
             REGISTRAR
           </router-link>
 
