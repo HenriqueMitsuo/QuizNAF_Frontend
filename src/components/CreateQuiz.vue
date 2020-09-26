@@ -89,7 +89,7 @@ export default {
   methods: {
     createQuiz: async function () {
       await this.quizService.createOne(this.QuizData);
-      this.$router.push("/Professor/");
+      this.$router.push({ name: 'Professor' });
       this.$toasted.global.createQuiz_success();
       //Redirecionar para pagina home do professor
     },

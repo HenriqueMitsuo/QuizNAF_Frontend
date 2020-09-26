@@ -14,60 +14,60 @@ const routes = [
     component: Login
   },
   {
-    path: "/Register",
-    name: "Register",
-    component: () => import("../views/Register.vue")
-  },
-  {
-    path: "/Home",
-    name: "Home",
-    component: () => import("../views/Home.vue"),
-    meta: { requiresAuth: true, requireRoles: [0, 1, 2] }
-  },
-  {
-    path: "/Question/:id",
-    name: "Question",
-    component: () => import("../views/Question.vue"),
-    meta: { requiresAuth: true, requireRoles: [0, 1, 2] }
-  },
-  {
-    path: "/Profile",
-    name: "Profile",
-    component: () => import("../views/Profile.vue"),
-    meta: { requiresAuth: true, requireRoles: [0, 1, 2] }
-  },
-  {
-    path: "/Admin",
+    path: "/admin",
     name: "Admin",
     component: () => import("../views/Admin.vue"),
     meta: { requiresAuth: true, requireRoles: [2] }
   },
   {
-    path: "/Professor",
+    path: "/register",
+    name: "Register",
+    component: () => import("../views/Register.vue")
+  },
+  {
+    path: "/profile",
+    name: "Profile",
+    component: () => import("../views/Profile.vue"),
+    meta: { requiresAuth: true, requireRoles: [0, 1, 2] }
+  },
+  {
+    path: "/home",
+    name: "Home",
+    component: () => import("../views/Home.vue"),
+    meta: { requiresAuth: true, requireRoles: [0, 1, 2] }
+  },
+  {
+    path: "/home/question/:id",
+    name: "Question",
+    component: () => import("../views/Question.vue"),
+    meta: { requiresAuth: true, requireRoles: [0, 1, 2] }
+  },
+  {
+    path: "/professor",
     name: "Professor",
     component: () => import("../views/Professor.vue"),
     meta: { requiresAuth: true, requireRoles: [1, 2] }
   },
   {
-    path: "/Create/:id",
+    path: "/professor/create/:id",
     name: "Create",
     component: () => import("../views/Create.vue"),
     meta: { requiresAuth: true, requireRoles: [1, 2] }
   },
   {
-    path: "/EditQuiz/:id",
+    path: "/professor/editQuiz/:id",
     name: "EditQuiz",
     component: () => import("../components/EditQuiz.vue"),
     meta: { requiresAuth: true, requireRoles: [1, 2] }
   },
   {
-    path: "/EditQuestion/:id",
+    path: "/professor/editQuestion/:id",
     name: "EditQuestion",
     component: () => import("../components/EditQuestion.vue"),
     meta: { requiresAuth: true, requireRoles: [1, 2] }
   },
   {
-    path: "/QuestionList/:id",
+    path: "/professor/questionList/:id",
     name: "QuestionList",
     component: () => import("../views/QuestionList.vue"),
     meta: { requiresAuth: true, requireRoles: [1, 2] }

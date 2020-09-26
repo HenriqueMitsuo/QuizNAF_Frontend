@@ -110,7 +110,7 @@ export default {
     },
     updateQuestion: async function () {
       await this.questionService.updateOne(this.quiz_id, this.QuestionData);
-      this.$router.push("/Professor/");
+      this.$router.push({ name: 'Professor' });
       this.$toasted.global.updateprofile_success(); //Vai escrever na tela "Dados atualizados com sucesso"
     },
   },

@@ -104,7 +104,7 @@ export default {
     },
     updateQuiz: async function () {
       await this.quizService.updateOne(this.quiz_id, this.QuizData);
-      this.$router.push("/Professor/");
+      this.$router.push({ name: 'Professor' });
       this.$toasted.global.updateprofile_success(); //Vai escrever na tela "Dados atualizados com sucesso"
     },
   },

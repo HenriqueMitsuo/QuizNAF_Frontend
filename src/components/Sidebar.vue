@@ -10,11 +10,11 @@
       <a href="javascript:void(0)" class="closebtn" v-on:click="closeNav">&times;</a>
 
       <div class="nav-link">
-        <router-link to="/Home"> <i class="fas fa-home mr-3"></i>Home </router-link>
+        <router-link :to="{ name: 'Home' }"> <i class="fas fa-home mr-3"></i>Home </router-link>
       </div>
 
       <div class="nav-link">
-        <router-link to="/Profile"> <i class="fas fa-user-circle mr-3"></i>Perfil </router-link>
+        <router-link :to="{ name: 'Profile' }"> <i class="fas fa-user-circle mr-3"></i>Perfil </router-link>
       </div>
 
       <div class="nav-link">
@@ -29,11 +29,11 @@
       </div>
       <!-- Se usuario tiver role 2, será mostrado... -->
       <div class="nav-link" v-if="role > 1">
-        <router-link to="/Admin"> <i class="fas fa-users-cog mr-3"></i>Admin </router-link>
+        <router-link :to="{ name: 'Admin' }"> <i class="fas fa-users-cog mr-3"></i>Admin </router-link>
       </div>
       <!-- Se usuario tiver role 1 ou acima, será mostrado... -->
       <div class="nav-link" v-if="role > 0">
-        <router-link to="/Professor"> <i class="fas fa-plus-circle mr-3"></i>Criar </router-link>
+        <router-link :to="{ name: 'Professor' }"> <i class="fas fa-plus-circle mr-3"></i>Criar </router-link>
       </div>
 
       <div class="nav-link mt-4">
@@ -73,7 +73,7 @@ export default {
     },
     logOff: function () {
       signOut();
-      this.$router.push("/");
+      this.$router.push({ name: 'Login' });
     },
     getRole: async function () {
       this.role = await checkRole();

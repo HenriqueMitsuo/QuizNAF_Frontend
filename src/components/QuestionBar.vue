@@ -6,7 +6,7 @@
       <div class="navbar-nav ml-auto">
         <div class="nav-item">
           <span class="navbar-brand">
-            <router-link tag="span" to="/Home">
+            <router-link tag="span" :to="{ name: 'Home' }">
               <i class="fas fa-times"></i>
             </router-link>
           </span>

@@ -83,7 +83,7 @@ export default {
       try {
         await this.quizService.deleteOne(id);
         this.$toasted.global.delete_success();
-        this.$router.push("/Professor");
+        this.$router.push({ name: 'Professor' });
       } catch (error) {
         console.log("Server error: ${error}");
         this.$toasted.global.delete_error();

@@ -184,7 +184,7 @@ export default {
     RegisterUser: async function () {
       if (this.User.password == this.passwordRepeat) {
         await this.userService.createUser(this.User);
-        this.$router.push("/");
+        this.$router.push({ name: 'Login' });
         this.$toasted.global.register_success();
       } else {
         this.$toasted.global.register_error();
