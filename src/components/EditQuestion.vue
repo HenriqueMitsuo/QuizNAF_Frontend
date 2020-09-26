@@ -74,10 +74,8 @@
         </div>
 
         <button type="submit" class="btn btn-success btn-block mt-3">Salvar alterações</button>
-        <router-link class="btn btn-danger btn-block mt-3" :to="{ name: 'Professor' }"
-          >Voltar</router-link
-        >
       </form>
+      <button class="btn btn-danger btn-block mt-3" @click="back">Voltar</button>
     </div>
   </div>
 </template>
@@ -93,27 +91,30 @@ export default {
   data() {
     return {
       questionService: new QuestionService("questions"),
-      quiz_id: this.$route.params.id,
+      question_id: this.$route.params.id,
       QuestionData: {
         title: null,
         trueAlternative: null,
         falseAlternative1: null,
         falseAlternative2: null,
-        quiz_id: this.$route.params.id,
+        quiz_id: null,
       },
     };
   },
   async mounted() {
-    this.autoFill(this.quiz_id); //Auto preenche os dados
+    this.autoFill(this.question_id); //Auto preenche os dados
   },
   methods: {
     autoFill: async function (id) {
       this.QuestionData = await this.questionService.queryOne(id);
     },
     updateQuestion: async function () {
-      await this.questionService.updateOne(this.quiz_id, this.QuestionData);
-      this.$router.push({ name: "Professor" });
+      await this.questionService.updateOne(this.question_id, this.QuestionData);
+      this.$router.push({ name: "QuestionList", params: { id: this.QuestionData.quiz_id } });
       this.$toasted.global.updateprofile_success(); //Vai escrever na tela "Dados atualizados com sucesso"
+    },
+    back: function () {
+      this.$router.push({ name: "QuestionList", params: { id: this.QuestionData.quiz_id } });
     },
   },
 };
