@@ -154,7 +154,9 @@
       </div>
 
       <button type="submit" class="btn btn-warning btn-block mt-3">REGISTRAR</button>
-      <router-link tag="button" class="btn btn-danger btn-block mt-3" to="/">Voltar</router-link>
+      <router-link tag="button" class="btn btn-danger btn-block mt-3" :to="{ name: '/' }"
+        >Voltar</router-link
+      >
     </form>
   </div>
 </template>
@@ -184,7 +186,7 @@ export default {
     RegisterUser: async function () {
       if (this.User.password == this.passwordRepeat) {
         await this.userService.createUser(this.User);
-        this.$router.push({ name: 'Login' });
+        this.$router.push({ name: "Login" });
         this.$toasted.global.register_success();
       } else {
         this.$toasted.global.register_error();

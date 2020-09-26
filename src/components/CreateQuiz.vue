@@ -67,7 +67,7 @@
       </div>
 
       <button type="submit" class="btn btn-success btn-block mt-3">Criar</button>
-      <router-link class="btn btn-danger btn-block mt-3" to="/Professor">Voltar</router-link>
+      <router-link class="btn btn-danger btn-block mt-3" :to="{name: 'Professor'}">Voltar</router-link>
     </form>
   </div>
 </template>

@@ -69,7 +69,9 @@
         </div>
 
         <button type="submit" class="btn btn-success btn-block mt-3">Salvar alterações</button>
-        <router-link class="btn btn-danger btn-block mt-3" to="/Professor">Voltar</router-link>
+        <router-link class="btn btn-danger btn-block mt-3" :to="{ name: 'Professor' }"
+          >Voltar</router-link
+        >
       </form>
     </div>
   </div>
@@ -81,7 +83,7 @@ import { ApiService as QuizService } from "@/services/ApiService";
 
 export default {
   components: {
-    Sidebar
+    Sidebar,
   },
   data() {
     return {
@@ -104,7 +106,7 @@ export default {
     },
     updateQuiz: async function () {
       await this.quizService.updateOne(this.quiz_id, this.QuizData);
-      this.$router.push({ name: 'Professor' });
+      this.$router.push({ name: "Professor" });
       this.$toasted.global.updateprofile_success(); //Vai escrever na tela "Dados atualizados com sucesso"
     },
   },

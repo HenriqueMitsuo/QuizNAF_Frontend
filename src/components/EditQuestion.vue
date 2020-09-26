@@ -74,7 +74,9 @@
         </div>
 
         <button type="submit" class="btn btn-success btn-block mt-3">Salvar alterações</button>
-        <router-link class="btn btn-danger btn-block mt-3" to="/Professor">Voltar</router-link>
+        <router-link class="btn btn-danger btn-block mt-3" :to="{ name: 'Professor' }"
+          >Voltar</router-link
+        >
       </form>
     </div>
   </div>
@@ -110,7 +112,7 @@ export default {
     },
     updateQuestion: async function () {
       await this.questionService.updateOne(this.quiz_id, this.QuestionData);
-      this.$router.push({ name: 'Professor' });
+      this.$router.push({ name: "Professor" });
       this.$toasted.global.updateprofile_success(); //Vai escrever na tela "Dados atualizados com sucesso"
     },
   },
