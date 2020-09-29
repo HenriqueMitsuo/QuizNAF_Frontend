@@ -3,7 +3,7 @@
     <div class="card bg-blue-container text-white mx-0">
       <div class="card-body">
         <h5 class="card-title">{{ user.email }}</h5>
-        <p class="card-text">{{ this.roleText }}</p>
+        <p class="card-text">{{ roleText }}</p>
         <hr />
         <h6>Alterar permissões</h6>
         <button class="btn btn-success mx-1" @click="changeRole(user.id, 0)">Comum</button>
@@ -22,7 +22,6 @@ export default {
   data() {
     return {
       userService: new UserService("role"),
-      Urole: this.user.role,
       roleText: null,
       change: { role: null }, //Usado apenas para alterar no banco
     };
@@ -32,7 +31,7 @@ export default {
   },
   methods: {
     defineRole: function () {
-      switch (this.Urole) {
+      switch (this.user.role) {
         case 0:
           this.roleText = "Usuário Comum";
           break;
@@ -46,7 +45,7 @@ export default {
     },
     changeRole: async function (id, newRole) {
       //Se o role novo é o mesmo que o atual, não troca
-      if (this.Urole == newRole) {
+      if (this.user.role == newRole) {
         this.$toasted.global.changeRole_error();
       } else {
         this.change.role = newRole; //Altera no array para conseguir mudar no banco
@@ -64,7 +63,8 @@ export default {
             this.$toasted.global.changeRole_success();
             break;
         }
-        //Recarregar a pagina
+        this.user.role = newRole;
+        this.defineRole(); //Recarrega o texto
       }
     },
   },
