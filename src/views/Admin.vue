@@ -2,21 +2,41 @@
   <div class="app">
     <Sidebar />
     <div class="container text-light">
+      <!-- Spinner -->
+      <div v-if="loading" class="text-center mt-4">
+        <div class="spinner-border text-light" role="status">
+          <span class="sr-only">Carregando...</span>
+        </div>
+      </div>
+
       <h3 class="text-center my-2">Lista de usuários</h3>
     </div>
-    <UserList />
+    <UserList v-for="user in users" :key="user.id" :user="user" />
   </div>
 </template>
 
 <script>
+import { ApiService as UserService } from "@/services/ApiService";
 import Sidebar from "@/components/Sidebar";
 import UserList from "@/components/UserList";
 
 export default {
+  name: "admin",
   components: {
     Sidebar,
     UserList,
   },
-  name: "admin",
+  data() {
+    return {
+      userService: new UserService("users"),
+      users: [],
+      loading: true,
+    };
+  },
+  async mounted() {
+    this.users = await this.userService.queryAll();
+    this.loading = false;
+    console.log(this.users);
+  },
 };
 </script>
