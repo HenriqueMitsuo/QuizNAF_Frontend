@@ -77,7 +77,7 @@ Vue.toasted.register("changeRole_success", "Permissões alteradas com sucesso!",
   type: "success",
   duration: 1000
 });
-Vue.toasted.register("changeRole_error", "Ops! O usuário já teme essas permissões!", {
+Vue.toasted.register("changeRole_error", "Ops! O usuário já tem essas permissões!", {
   type: "error",
   duration: 1000
 });

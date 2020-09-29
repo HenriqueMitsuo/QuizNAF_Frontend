@@ -6,21 +6,25 @@
         <p class="card-text">{{ this.roleText }}</p>
         <hr />
         <h6>Alterar permissões</h6>
-        <button class="btn btn-success mx-1" @click="changeRole(0)">Comum</button>
-        <button class="btn btn-warning mx-1" @click="changeRole(1)">Professor</button>
-        <button class="btn btn-danger mx-1" @click="changeRole(2)">Admin</button>
+        <button class="btn btn-success mx-1" @click="changeRole(user.id, 0)">Comum</button>
+        <button class="btn btn-warning mx-1" @click="changeRole(user.id, 1)">Professor</button>
+        <button class="btn btn-danger mx-1" @click="changeRole(user.id, 2)">Admin</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { ApiService as UserService } from "@/services/ApiService";
+
 export default {
   props: ["user"],
   data() {
     return {
-      role: this.user.role,
+      userService: new UserService("role"),
+      Urole: this.user.role,
       roleText: null,
+      change: { role: null }, //Usado apenas para alterar no banco
     };
   },
   async mounted() {
@@ -28,7 +32,7 @@ export default {
   },
   methods: {
     defineRole: function () {
-      switch (this.role) {
+      switch (this.Urole) {
         case 0:
           this.roleText = "Usuário Comum";
           break;
@@ -40,28 +44,27 @@ export default {
           break;
       }
     },
-    changeRole: function (role) {
-      if (this.role == role) {
-        //Apenas mostrar a mensagem de erro
+    changeRole: async function (id, newRole) {
+      //Se o role novo é o mesmo que o atual, não troca
+      if (this.Urole == newRole) {
         this.$toasted.global.changeRole_error();
       } else {
-        switch (role) {
+        this.change.role = newRole; //Altera no array para conseguir mudar no banco
+        switch (newRole) {
           case 0:
-            //Alterar apenas o Role no banco
-            console.log("Alterar para Comum");
+            await this.userService.updateOne(id, this.change);
             this.$toasted.global.changeRole_success();
             break;
           case 1:
-            //Alterar apenas o Role no banco
-            console.log("Alterar para Professor");
+            await this.userService.updateOne(id, this.change);
             this.$toasted.global.changeRole_success();
             break;
           case 2:
-            //Alterar apenas o Role no banco
-            console.log("Alterar para Admin");
+            await this.userService.updateOne(id, this.change);
             this.$toasted.global.changeRole_success();
             break;
         }
+        //Recarregar a pagina
       }
     },
   },
