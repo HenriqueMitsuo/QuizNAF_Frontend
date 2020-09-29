@@ -3,12 +3,15 @@
     <div class="card bg-blue-container text-white mx-0">
       <div class="card-body">
         <h5 class="card-title">{{ user.email }}</h5>
-        <p class="card-text">{{ roleText }}</p>
+        <p class="card-text" v-if="changeRole.role == 0">Usuário Comum</p>
+        <p class="card-text" v-if="changeRole.role == 1">Professor</p>
+        <p class="card-text" v-if="changeRole.role == 2">Administrador</p>
+
         <hr />
         <h6>Alterar permissões</h6>
-        <button class="btn btn-success mx-1" @click="changeRole(user.id, 0)">Comum</button>
-        <button class="btn btn-warning mx-1" @click="changeRole(user.id, 1)">Professor</button>
-        <button class="btn btn-danger mx-1" @click="changeRole(user.id, 2)">Admin</button>
+        <button class="btn btn-success mx-1" @click="updateRole(user.id, 0)">Comum</button>
+        <button class="btn btn-warning mx-1" @click="updateRole(user.id, 1)">Professor</button>
+        <button class="btn btn-danger mx-1" @click="updateRole(user.id, 2)">Admin</button>
       </div>
     </div>
   </div>
@@ -22,49 +25,17 @@ export default {
   data() {
     return {
       userService: new UserService("role"),
-      roleText: null,
-      change: { role: null }, //Usado apenas para alterar no banco
+      changeRole: { role: this.user.role }, //Pega o atual valor do role pelo props
     };
   },
-  async mounted() {
-    this.defineRole(); //Define o que será escrito abaixo do email
-  },
   methods: {
-    defineRole: function () {
-      switch (this.user.role) {
-        case 0:
-          this.roleText = "Usuário Comum";
-          break;
-        case 1:
-          this.roleText = "Professor";
-          break;
-        case 2:
-          this.roleText = "Administrador";
-          break;
-      }
-    },
-    changeRole: async function (id, newRole) {
+    updateRole: async function (id, newRole) {
       //Se o role novo é o mesmo que o atual, não troca
-      if (this.user.role == newRole) {
+      if (this.changeRole.role == newRole) {
         this.$toasted.global.changeRole_error();
       } else {
-        this.change.role = newRole; //Altera no array para conseguir mudar no banco
-        switch (newRole) {
-          case 0:
-            await this.userService.updateOne(id, this.change);
-            this.$toasted.global.changeRole_success();
-            break;
-          case 1:
-            await this.userService.updateOne(id, this.change);
-            this.$toasted.global.changeRole_success();
-            break;
-          case 2:
-            await this.userService.updateOne(id, this.change);
-            this.$toasted.global.changeRole_success();
-            break;
-        }
-        this.user.role = newRole;
-        this.defineRole(); //Recarrega o texto
+        this.changeRole = await this.userService.updateOne(id, { role: newRole }); //Altera no banco e na variavel local
+        this.$toasted.global.changeRole_success();
       }
     },
   },
