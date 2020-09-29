@@ -71,3 +71,13 @@ Vue.toasted.register(
     duration: 2000
   }
 );
+
+//Toast usado no componente UserList.vue
+Vue.toasted.register("changeRole_success", "Permissões alteradas com sucesso!", {
+  type: "success",
+  duration: 1000
+});
+Vue.toasted.register("changeRole_error", "Ops! O usuário já teme essas permissões!", {
+  type: "error",
+  duration: 1000
+});

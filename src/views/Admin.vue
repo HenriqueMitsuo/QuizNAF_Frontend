@@ -36,7 +36,6 @@ export default {
   async mounted() {
     this.users = await this.userService.queryAll();
     this.loading = false;
-    console.log(this.users);
   },
 };
 </script>
