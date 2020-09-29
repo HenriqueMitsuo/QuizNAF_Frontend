@@ -72,7 +72,6 @@ export default {
     //Apagar quiz depois de confirmar
     deleteQuestion: async function (id) {
       await this.questionsService.deleteOne(id);
-      location.reload(); //recarrega a pagina
       this.$toasted.global.delete_success();
     },
   },
