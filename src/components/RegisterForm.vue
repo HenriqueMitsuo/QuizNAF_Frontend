@@ -154,7 +154,7 @@
       </div>
 
       <button type="submit" class="btn btn-warning btn-block mt-3">REGISTRAR</button>
-      <router-link tag="button" class="btn btn-danger btn-block mt-3" :to="{ name: '/' }"
+      <router-link tag="button" class="btn btn-danger btn-block mt-3" :to="{ name: 'Login' }"
         >Voltar</router-link
       >
     </form>
