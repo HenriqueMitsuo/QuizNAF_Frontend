@@ -1,3 +1,10 @@
+/* ? Global Font */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700&display=swap');
+
+* {
+  font-family: 'Fira Sans', sans-serif;
+}
+
 /* ? Color Schemes */
 :root {
   --color-primary: #25282C;
@@ -12,7 +19,6 @@
   --color-accent: #191C20;
   --text-primary: #191C20;
 }
-
 
 /* ? BACKGROUND & FONT COLOR*/
 body {
@@ -54,6 +60,10 @@ h2 {
 }
 
 /* * BUTTON OVERWRITES */
+.btn {
+  font-weight: 500;
+}
+
 .btn-secondary {
   border: 1px solid var(--color-primary);
   background-color: var(--color-primary);
