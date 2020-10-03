@@ -1,55 +1,55 @@
 :root {
-  --bg-light: #ECF0F1;
-  --bg-dark-light: #25282C;
-  --bg-dark: #191C20;
-  --bg-dark-light-dm: #25282C;
-  --bg-very-dark-dm: #25282C;
+  --color-primary: #25282C;
+  --color-secondary: #191C20;
+  --color-accent: #ECF0F1;
+  --text-primary: #ECF0F1;
 }
 
-body {
-  background-color: var(--bg-dark) !important;
+/* ? BACKGROUND COLOR */
+html, body {
+  background-color: var(--color-secondary);
 }
 
-/* Cores de fundo */
-.bg-app-primary {
-  background-color: var(--bg-dark-light);
+.bg-primary {
+  background-color: var(--color-primary) !important;
+  color: var(--text-primary) !important;
 }
 
-.bg-app-secondary {
-  background-color: var(--bg-dark);
+/* * TEXTUAL OVERWRITES */
+h4 {
+  color: var(--text-primary);
 }
 
-.bg-app-accent {
-  background-color: var(--bg-light);
+h2 {
+  color: var(--text-primary);
 }
 
-.active {
-  background-color: var(--bg-light) !important;
-  color: var(--bg-dark) !important;
+/* * INPUT OVERWRITES */
+input[type=radio] {
+  background-color: var(--color-accent);
 }
 
-
-.bg-blue-container {
-  background-color: var(--bg-dark-light-dm) !important;
+.input-group-text {
+  border: none;
+  background-color: var(--color-primary);
+  color: var(--color-accent);
 }
 
-/* Mover tudo isso para um arquivo css separado dps (apenas para esse tipo de estilo global) */
 .form-control {
   border: none;
-  padding-left: 0px !important;
-  background: var(--bg-dark-light) !important;
+  background-color: var(--color-primary);
+  color: var(--color-accent);
+  padding-left: 0 !important;
 }
 
 .form-control:focus {
-  box-shadow: none !important;
+  background-color: var(--color-primary);
+  color: var(--color-accent);
 }
 
-.input-group-prepend  {
-  border: none;
-}
-
-.input-group-prepend > span {
-  border: none;
-  background: var(--bg-dark-light) !important;
-  color: var(--bg-light);
+/* * BUTTON OVERWRITES */
+.btn-secondary {
+  border: 1px solid var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-accent);
 }

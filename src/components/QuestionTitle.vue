@@ -1,6 +1,6 @@
 <template>
   <div class="col-12 my-3">
-    <div class="card bg-blue-container text-white mx-0">
+    <div class="card bg-primary mx-0">
       <div class="card-body">
         <h5 class="card-title">{{ question.title }}</h5>
         <button class="btn btn-warning mx-2" @click="editQuestion(question.id)">

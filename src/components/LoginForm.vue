@@ -12,7 +12,7 @@
             <input
               v-model="email"
               type="text"
-              class="form-control text-light"
+              class="form-control"
               placeholder="Email"
               aria-label="Email"
               aria-describedby="basic-addon1"
@@ -26,14 +26,14 @@
             <input
               v-model="password"
               type="password"
-              class="form-control text-light"
+              class="form-control"
               placeholder="Senha"
               aria-label="Senha"
               aria-describedby="basic-addon1"
             />
           </div>
 
-          <button type="submit" class="btn bg-app-accent btn-block mt-4">
+          <button type="submit" class="btn btn-primary btn-block mt-4">
             <span
               v-if="loading"
               class="spinner-border spinner-border-sm"
@@ -47,7 +47,7 @@
 
           <router-link
             tag="button"
-            class="btn btn-outline-light btn-block mt-3"
+            class="btn btn-success btn-block mt-3"
             :to="{ name: 'Register' }"
           >
             REGISTRAR

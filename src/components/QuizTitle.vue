@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="col-12 my-3">
-      <div class="card bg-blue-container text-white mx-0">
+      <div class="card bg-primary mx-0">
         <div class="card-body">
           <h5 class="card-title">{{ quiz.title }}</h5>
           <!-- Visualizar e editar questões -->
@@ -37,7 +37,7 @@
       aria-hidden="true"
     >
       <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="bg-app-primary text-center text-white modal-content">
+        <div class="text-center modal-content">
           <div class="modal-body">
             <h5>Deletar quiz?</h5>
             Ao confirmar, não será possível reverter essa operação.

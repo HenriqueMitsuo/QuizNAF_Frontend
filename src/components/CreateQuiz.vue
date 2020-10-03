@@ -2,7 +2,7 @@
   <div class="app">
     <Sidebar />
     <div class="container">
-      <h2 class="text-white text-center mt-2">Criar Quiz</h2>
+      <h2 class="text-center my-4">Criar Quiz</h2>
       <form class="mt-4" @submit.prevent="createQuiz">
         <!-- Titulo do quiz -->
         <div class="input-group input-group-lg mb-3">
@@ -14,7 +14,7 @@
           <input
             type="text"
             v-model="QuizData.title"
-            class="form-control text-light"
+            class="form-control"
             aria-label="Large"
             aria-describedby="inputGroup-sizing-sm"
             placeholder="Titulo"
@@ -24,14 +24,14 @@
         <!-- Categoria do quiz -->
         <div class="input-group input-group-lg mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text" style="background: transparent">
+            <span class="input-group-text">
               <i class="fas fa-align-left"></i>
             </span>
           </div>
           <input
             type="text"
             v-model="QuizData.category"
-            class="form-control text-light"
+            class="form-control"
             aria-label="Large"
             aria-describedby="inputGroup-sizing-sm"
             placeholder="Categoria"
@@ -48,7 +48,7 @@
           <input
             type="text"
             v-model="QuizData.description"
-            class="form-control text-light"
+            class="form-control"
             aria-label="Large"
             aria-describedby="inputGroup-sizing-sm"
             placeholder="Descrição"
@@ -58,11 +58,11 @@
         <!-- Idioma do quiz -->
         <div class="input-group input-group-lg mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text" style="background: transparent">
+            <span class="input-group-text">
               <i class="fas fa-language"></i>
             </span>
           </div>
-          <select class="form-control text-light" v-model="QuizData.lang" required>
+          <select class="form-control" v-model="QuizData.lang" required>
             <option value="pt-br">PT-BR</option>
             <option value="es">ES</option>
           </select>

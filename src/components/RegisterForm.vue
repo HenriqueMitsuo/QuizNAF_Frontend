@@ -10,7 +10,7 @@
         <input
           type="text"
           v-model="User.name"
-          class="form-control text-light"
+          class="form-control "
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
           placeholder="Nome"
@@ -20,14 +20,14 @@
 
       <div class="input-group input-group-lg mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text" style="background: transparent">
+          <span class="input-group-text"  >
             <i class="fas fa-envelope"></i>
           </span>
         </div>
         <input
           type="text"
           v-model="User.email"
-          class="form-control text-light"
+          class="form-control "
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
           placeholder="E-mail"
@@ -44,7 +44,7 @@
         <input
           type="text"
           v-model="User.country"
-          class="form-control text-light"
+          class="form-control "
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
           placeholder="País"
@@ -54,14 +54,14 @@
 
       <div class="input-group input-group-lg mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text" style="background: transparent">
+          <span class="input-group-text">
             <i class="fas fa-building"></i>
           </span>
         </div>
         <input
           type="text"
           v-model="User.city"
-          class="form-control text-light"
+          class="form-control "
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
           placeholder="Cidade"
@@ -78,7 +78,7 @@
         <input
           type="text"
           v-model="User.educationInstitute"
-          class="form-control text-light"
+          class="form-control "
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
           placeholder="Instituição de ensino"
@@ -95,7 +95,7 @@
         <input
           type="text"
           v-model="User.educationCourse"
-          class="form-control text-light"
+          class="form-control "
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
           placeholder="Curso"
@@ -112,7 +112,7 @@
         <input
           type="text"
           v-model="User.educationType"
-          class="form-control text-light"
+          class="form-control "
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
           placeholder="Tipo de curso"
@@ -129,7 +129,7 @@
         <input
           type="password"
           v-model="User.password"
-          class="form-control text-light"
+          class="form-control "
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
           placeholder="Senha"
@@ -146,16 +146,16 @@
         <input
           type="password"
           v-model="passwordRepeat"
-          class="form-control text-light"
+          class="form-control "
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
           placeholder="Repita a senha"
         />
       </div>
 
-      <button type="submit" class="btn btn-warning btn-block mt-3">REGISTRAR</button>
-      <router-link tag="button" class="btn btn-danger btn-block mt-3" :to="{ name: 'Login' }"
-        >Voltar</router-link
+      <button type="submit" class="btn btn-primary btn-block mt-3">REGISTRAR</button>
+      <router-link tag="button" class="btn btn-secondary btn-block my-3" :to="{ name: 'Login' }"
+        >VOLTAR</router-link
       >
     </form>
   </div>

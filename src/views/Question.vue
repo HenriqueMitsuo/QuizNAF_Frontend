@@ -3,7 +3,7 @@
     <QuestionBar :score="currentScore" :current="currentQuestion + 1" :total="questions.length"/>
       <!-- Spinner -->
       <div v-if="loading" class="text-center mt-4">
-        <div class="spinner-border text-light" role="status">
+        <div class="spinner-border" role="status">
           <span class="sr-only">Carregando...</span>
         </div>
       </div>  
@@ -12,9 +12,9 @@
       <div v-if="questions.length > 0" class="container" :class="formBlock ? 'disable-form' : ''"> 
         <!-- Titulo -->
         <div class="col-12 py-5">
-          <p class="text-light text-center" style="font-size: 1.2rem">
+          <h4 class="text-center">
             {{ questions[currentQuestion].title }}
-          </p>
+          </h4>
         </div>
 
         <!-- Alternativas -->
@@ -22,7 +22,7 @@
           <label 
             v-for="answer in questions[currentQuestion].answers" 
             :key="answer.id" 
-            :class="[{ active: selectedAnswer === answer.id }, 'btn btn-secondary bg-app-primary mb-3']">
+            :class="[{ active: selectedAnswer === answer.id }, 'btn btn-secondary px-2 py-2 mb-3']">
             <input 
               v-model="selectedAnswer" 
               :value="answer.id" 

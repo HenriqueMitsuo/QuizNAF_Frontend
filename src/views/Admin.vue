@@ -1,10 +1,10 @@
 <template>
   <div class="app">
     <Sidebar />
-    <div class="container text-light">
+    <div class="container">
       <!-- Spinner -->
       <div v-if="loading" class="text-center mt-4">
-        <div class="spinner-border text-light" role="status">
+        <div class="spinner-border" role="status">
           <span class="sr-only">Carregando...</span>
         </div>
       </div>

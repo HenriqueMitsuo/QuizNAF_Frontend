@@ -2,7 +2,7 @@
   <div class="app">
     <Sidebar />
     <div class="container">
-      <h3 class="text-white text-center mt-2">Atualizar questão</h3>
+      <h2 class="text-center my-4">Atualizar questão</h2>
       <form class="mt-4" @submit.prevent="updateQuestion">
         <!-- Titulo da pergunta -->
         <div class="input-group input-group-lg mb-3">
@@ -14,7 +14,7 @@
           <input
             type="text"
             v-model="QuestionData.title"
-            class="form-control text-light"
+            class="form-control"
             aria-label="Large"
             aria-describedby="inputGroup-sizing-sm"
             placeholder="Titulo da questão"
@@ -24,14 +24,14 @@
         <!-- Alternativa correta -->
         <div class="input-group input-group-lg mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text" style="background: transparent">
+            <span class="input-group-text">
               <i class="fas fa-align-left"></i>
             </span>
           </div>
           <input
             type="text"
             v-model="QuestionData.trueAlternative"
-            class="form-control text-light"
+            class="form-control"
             aria-label="Large"
             aria-describedby="inputGroup-sizing-sm"
             placeholder="Alternativa correta"
@@ -41,14 +41,14 @@
         <!-- Alternativa falsa 1 -->
         <div class="input-group input-group-lg mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text" style="background: transparent">
+            <span class="input-group-text">
               <i class="fas fa-align-left"></i>
             </span>
           </div>
           <input
             type="text"
             v-model="QuestionData.falseAlternative1"
-            class="form-control text-light"
+            class="form-control"
             aria-label="Large"
             aria-describedby="inputGroup-sizing-sm"
             placeholder="Alternativa incorreta"
@@ -58,14 +58,14 @@
         <!-- Alternativa falsa 2 -->
         <div class="input-group input-group-lg mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text" style="background: transparent">
+            <span class="input-group-text">
               <i class="fas fa-align-left"></i>
             </span>
           </div>
           <input
             type="text"
             v-model="QuestionData.falseAlternative2"
-            class="form-control text-light"
+            class="form-control"
             aria-label="Large"
             aria-describedby="inputGroup-sizing-sm"
             placeholder="Alternativa incorreta"

@@ -10,9 +10,10 @@
       aria-hidden="true"
     >
       <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="bg-app-primary text-center text-white modal-content">
+        <div class="text-center text-white bg-primary modal-content">
           <div class="modal-body">
-            <h5>SOBRE NÓS</h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vitae ex bibendum, posuere turpis at, malesuada tortor. Aenean condimentum bibendum ipsum vitae tincidunt.
+            <h5 class="my-2">SOBRE NÓS</h5>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vitae ex bibendum, posuere turpis at, malesuada tortor. Aenean condimentum bibendum ipsum vitae tincidunt.
           </div>
           <div class="modal-body">
             <img src="@/assets/univr.png" class="mx-auto d-block" width="40%" />

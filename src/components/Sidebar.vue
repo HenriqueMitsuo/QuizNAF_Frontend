@@ -1,12 +1,12 @@
 <template>
   <div id="sidebar">
-    <div class="topbar">
-      <button class="openbtn" v-on:click="openNav">
+    <div class="bg-primary">
+      <button class="openbtn btn-secondary " v-on:click="openNav">
         <i class="fas fa-bars"></i>
       </button>
     </div>
 
-    <div class="sidebar" :style="{ width: collapsed ? '0px' : '250px' }">
+    <div class="sidebar bg-primary" :style="{ width: collapsed ? '0px' : '250px' }">
       <a href="javascript:void(0)" class="closebtn" v-on:click="closeNav">&times;</a>
 
       <div class="nav-link">
@@ -37,7 +37,7 @@
       </div>
 
       <div class="nav-link mt-4">
-        <button class="btn bg-app-primary btn-lg text-light" style="width: 200px" @click="logOff">
+        <button class="btn btn-outline-light btn-lg" style="width: 200px" @click="logOff">
           <i class="fas fa-sign-out-alt mr-3"></i>Sair
         </button>
       </div>
@@ -90,7 +90,6 @@ export default {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: var(--bg-dark);
   overflow-x: hidden;
   padding-top: 60px;
   transition: 0.5s;
@@ -99,31 +98,25 @@ export default {
 .nav-link > a {
   width: 250px;
   padding: 8px 8px 8px 16px;
+  color: var(--white);
   font-size: 24px;
-  color: #ffffff;
   display: block;
   transition: 0.3s;
 }
 
 .sidebar .closebtn {
   position: absolute;
+  color: var(--white);
   top: 0;
   right: 25px;
   font-size: 36px;
   text-decoration: none;
-  color: #ffffff;
   margin-left: 50px;
-}
-
-.topbar {
-  background-color: var(--bg-dark-light);
 }
 
 .openbtn {
   font-size: 20px;
   cursor: pointer;
-  background-color: var(--bg-dark-light);
-  color: white;
   padding: 10px 15px;
   border: none;
 }

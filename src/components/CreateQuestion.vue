@@ -2,7 +2,7 @@
   <div class="app">
     <Sidebar />
     <div class="container">
-      <h2 class="text-white text-center mt-2">Criar questão</h2>
+      <h2 class="text-center my-4">Criar questão</h2>
       <form class="mt-4" @submit.prevent="createQuestion">
         <!-- Titulo da pergunta -->
         <div class="input-group input-group-lg mb-3">
@@ -14,7 +14,7 @@
           <input
             type="text"
             v-model="QuestionData.title"
-            class="form-control text-light"
+            class="form-control"
             aria-label="Large"
             aria-describedby="inputGroup-sizing-sm"
             placeholder="Titulo da questão"
@@ -31,7 +31,7 @@
           <input
             type="text"
             v-model="QuestionData.trueAlternative"
-            class="form-control text-light"
+            class="form-control"
             aria-label="Large"
             aria-describedby="inputGroup-sizing-sm"
             placeholder="Alternativa correta"
@@ -48,7 +48,7 @@
           <input
             type="text"
             v-model="QuestionData.falseAlternative1"
-            class="form-control text-light"
+            class="form-control"
             aria-label="Large"
             aria-describedby="inputGroup-sizing-sm"
             placeholder="Alternativa incorreta"
@@ -65,7 +65,7 @@
           <input
             type="text"
             v-model="QuestionData.falseAlternative2"
-            class="form-control text-light"
+            class="form-control"
             aria-label="Large"
             aria-describedby="inputGroup-sizing-sm"
             placeholder="Alternativa incorreta"

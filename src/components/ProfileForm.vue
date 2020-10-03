@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h2 class="text-white text-center mt-2">Alterar perfil</h2>
+    <h2 class="text-center mt-4">Alterar perfil</h2>
     <form @submit.prevent="updateUser" v-if="changePassword == false" class="mt-4">
       <div class="input-group input-group-lg mb-3">
         <div class="input-group-prepend">
@@ -11,7 +11,7 @@
         <input
           type="text"
           v-model="User.name"
-          class="form-control text-light"
+          class="form-control"
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
           placeholder="Nome"
@@ -21,14 +21,14 @@
       <!-- E-mail será alteravel? -->
       <div class="input-group input-group-lg mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text" style="background: transparent">
+          <span class="input-group-text">
             <i class="fas fa-envelope"></i>
           </span>
         </div>
         <input
           type="text"
           v-model="User.email"
-          class="form-control text-light"
+          class="form-control"
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
           placeholder="E-mail"
@@ -44,7 +44,7 @@
         <input
           type="text"
           v-model="User.country"
-          class="form-control text-light"
+          class="form-control"
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
           placeholder="País"
@@ -54,14 +54,14 @@
 
       <div class="input-group input-group-lg mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text" style="background: transparent">
+          <span class="input-group-text">
             <i class="fas fa-building"></i>
           </span>
         </div>
         <input
           type="text"
           v-model="User.city"
-          class="form-control text-light"
+          class="form-control"
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
           placeholder="Cidade"
@@ -78,7 +78,7 @@
         <input
           type="text"
           v-model="User.educationInstitute"
-          class="form-control text-light"
+          class="form-control"
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
           placeholder="Instituição de ensino"
@@ -95,7 +95,7 @@
         <input
           type="text"
           v-model="User.educationCourse"
-          class="form-control text-light"
+          class="form-control"
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
           placeholder="Curso"
@@ -112,15 +112,15 @@
         <input
           type="text"
           v-model="User.educationType"
-          class="form-control text-light"
+          class="form-control"
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
           placeholder="Tipo de curso"
           required
         />
       </div>
-      <button type="submit" class="btn btn-success btn-block mt-3">Salvar</button>
-      <a @click="changePass" class="btn btn-primary btn-block mt-3">Alterar senha</a>
+      <button type="submit" class="btn btn-success btn-block mt-3">SALVAR</button>
+      <a @click="changePass" class="btn btn-primary btn-block mt-3">ALTERAR SENHA</a>
     </form>
 
     <form @submit.prevent="updatePassword" v-if="changePassword == true" class="mt-4">
@@ -134,7 +134,7 @@
         <input
           type="password"
           v-model="Password.password"
-          class="form-control text-light"
+          class="form-control"
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
           placeholder="Nova senha"
@@ -151,15 +151,15 @@
         <input
           type="password"
           v-model="RepeatnewPassword"
-          class="form-control text-light"
+          class="form-control"
           aria-label="Large"
           aria-describedby="inputGroup-sizing-sm"
           placeholder="Repita nova senha"
           required
         />
       </div>
-      <button type="submit" class="btn btn-success btn-block mt-3">Alterar senha</button>
-      <a @click="changePass" class="btn btn-primary btn-block mt-3">Voltar</a>
+      <button type="submit" class="btn btn-success btn-block mt-3">ALTERAR SENHA</button>
+      <a @click="changePass" class="btn btn-primary btn-block mt-3">VOLTAR</a>
     </form>
   </div>
 </template>
