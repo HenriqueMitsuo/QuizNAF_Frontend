@@ -37,7 +37,7 @@
       aria-hidden="true"
     >
       <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="text-center modal-content">
+        <div class="text-center bg-primary modal-content">
           <div class="modal-body">
             <h5>Deletar quiz?</h5>
             Ao confirmar, não será possível reverter essa operação.
@@ -83,7 +83,7 @@ export default {
       try {
         await this.quizService.deleteOne(id);
         this.$toasted.global.delete_success();
-        this.$router.push({ name: 'Professor' });
+        this.$router.push({ name: "Professor" });
       } catch (error) {
         console.log("Server error: ${error}");
         this.$toasted.global.delete_error();

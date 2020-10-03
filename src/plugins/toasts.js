@@ -58,7 +58,7 @@ Vue.toasted.register("createQuestion_success", "Questão criada com sucesso!", {
 });
 
 //Toast usado no componente QuestionTitle ou QuizTitle ao deletar
-Vue.toasted.register("delete_success", "Deletado com suces!", {
+Vue.toasted.register("delete_success", "Deletado com sucesso!", {
   type: "success",
   duration: 1000
 });

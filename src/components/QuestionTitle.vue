@@ -25,7 +25,7 @@
       aria-hidden="true"
     >
       <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="bg-app-primary text-center text-white modal-content">
+        <div class="text-center bg-primary modal-content">
           <div class="modal-body">
             <h5>Confimar ação?</h5>
             Ao confirmar, não será possível reverter essa operação.

@@ -12,7 +12,7 @@
       <!-- Conteúdo -->
       <h2 class="text-center my-4">Quizzes</h2>
       <QuizTitle v-for="quiz in quizzes" :key="quiz.id" :quiz="quiz" />
-      <router-link type="submit" class="btn btn-primary btn-block" :to="{ name: 'CreateQuiz' }">
+      <router-link type="submit" class="btn btn-primary btn-block mb-2" :to="{ name: 'CreateQuiz' }">
         Criar Quiz
       </router-link>
     </div>
