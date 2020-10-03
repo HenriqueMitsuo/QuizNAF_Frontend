@@ -69,10 +69,10 @@ export default {
     editQuestion: function (id) {
       this.$router.push({ name: "EditQuestion", params: { id: id } });
     },
-    //Apagar quiz depois de confirmar
     deleteQuestion: async function (id) {
       await this.questionsService.deleteOne(id);
       this.$toasted.global.delete_success();
+      this.$router.go(this.$router.currentRoute); //Recarrega mesma rota para refazer a query
     },
   },
 };

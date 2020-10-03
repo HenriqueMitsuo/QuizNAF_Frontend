@@ -23,14 +23,16 @@
             <i class="fas fa-arrow-left"></i>
           </router-link>
 
-          <!-- Editar Quiz (Titulo, Categoria, Descrição...) -->
-          <button class="btn btn-warning mx-2" @click="editQuiz(quiz.id)">
-            <i class="fas fa-pen"></i>
-          </button>
           <!-- Dar play no quiz diretamente -->
           <button class="btn btn-success mx-2" @click="goToQuiz(quiz.id)">
             <i class="fas fa-play"></i>
           </button>
+
+          <!-- Editar Quiz (Titulo, Categoria, Descrição...) -->
+          <button class="btn btn-warning mx-2" @click="editQuiz(quiz.id)">
+            <i class="fas fa-pen"></i>
+          </button>
+
           <!-- Deletar Quiz -->
           <button
             class="btn btn-danger mx-2"
@@ -98,7 +100,12 @@ export default {
       try {
         await this.quizService.deleteOne(id);
         this.$toasted.global.delete_success();
-        this.$router.push({ name: "Professor" });
+        //Verifica a pagina atual
+        if (this.$route.name == "QuestionList") {
+          this.$router.push({ name: "Professor" }); //Se estiver na pagina de questões, volta pro professor
+        } else {
+          this.$router.go(this.$router.currentRoute); //Se estiver na pagina do Professor, recarrega ela
+        }
       } catch (error) {
         console.log("Server error: ${error}");
         this.$toasted.global.delete_error();
