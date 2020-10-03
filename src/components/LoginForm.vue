@@ -54,13 +54,6 @@
           </router-link>     
         </form>
 
-        <button id="color-theme"  
-          class="btn btn-secondary btn-block my-4"
-          @click="changeTheme"
-        >
-          Dark
-        </button>
-
       </div>
     </div>
   </div>
@@ -90,10 +83,6 @@ export default {
           this.$toasted.global.login_error();
         });
       this.loading = false;
-    },
-    changeTheme() {
-      const body = document.querySelector("body");
-      body.classList.toggle("light-mode");
     },
   },
 };

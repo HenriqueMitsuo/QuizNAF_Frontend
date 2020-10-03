@@ -1,8 +1,11 @@
 <template>
   <div id="sidebar">
-    <div class="bg-primary">
+    <div class="topbar bg-primary">
       <button class="openbtn btn-secondary " v-on:click="openNav">
         <i class="fas fa-bars"></i>
+      </button>
+      <button class="openbtn btn-secondary " v-on:click="changeTheme">
+        <i class="fas fa-lightbulb"></i>
       </button>
     </div>
 
@@ -77,11 +80,20 @@ export default {
     getRole: async function () {
       this.role = await checkRole();
     },
+    changeTheme() {
+      const body = document.querySelector("body");
+      body.classList.toggle("light-mode");
+    },
   },
 };
 </script>
 
 <style>
+.topbar {
+  display: flex;
+  justify-content: space-between;
+}
+
 .sidebar {
   height: 100%;
   width: 0;
@@ -115,9 +127,15 @@ export default {
 
 .openbtn {
   font-size: 20px;
-  cursor: pointer;
   padding: 10px 15px;
-  border: none;
+}
+
+.openbtn:focus {
+  border: 1px solid var(--bg-primary);
+  outline: none;
+  box-shadow: none;
+  background: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 @media screen and (max-height: 450px) {
