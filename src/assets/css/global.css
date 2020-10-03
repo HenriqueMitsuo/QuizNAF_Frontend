@@ -20,6 +20,10 @@
   --text-primary: #191C20;
 }
 
+body {
+  transition: background-color 200ms;
+}
+
 /* ? BACKGROUND & FONT COLOR*/
 body {
   background-color: var(--color-secondary);
