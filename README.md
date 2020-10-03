@@ -22,3 +22,7 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Mudanças
+- Aumentar tamanho da fonte (fonte responsível)
+- Switch para tema light / dark
