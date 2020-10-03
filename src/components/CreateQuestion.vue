@@ -24,7 +24,7 @@
         <!-- Alternativa correta -->
         <div class="input-group input-group-lg mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text" style="background: transparent">
+            <span class="input-group-text">
               <i class="fas fa-align-left"></i>
             </span>
           </div>
@@ -41,7 +41,7 @@
         <!-- Alternativa falsa 1 -->
         <div class="input-group input-group-lg mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text" style="background: transparent">
+            <span class="input-group-text">
               <i class="fas fa-align-left"></i>
             </span>
           </div>
@@ -58,7 +58,7 @@
         <!-- Alternativa falsa 2 -->
         <div class="input-group input-group-lg mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text" style="background: transparent">
+            <span class="input-group-text">
               <i class="fas fa-align-left"></i>
             </span>
           </div>
