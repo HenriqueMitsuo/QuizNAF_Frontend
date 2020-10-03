@@ -1,7 +1,7 @@
 <template>
   <div class="sticky-top">
     
-    <div class="navbar navbar-expand-md navbar-dark bg-primary">
+    <div class="navbar navbar-expand-md bg-primary">
       <span class="navbar-brand abs">Categoria</span>
       <div class="navbar-nav ml-auto">
         <div class="nav-item">
@@ -14,7 +14,7 @@
       </div>
     </div>
 
-    <div class="sticky-top navbar navbar-expand-md navbar-dark bg-primary">
+    <div class="sticky-top navbar navbar-expand-md bg-primary">
       <span class="navbar-brand abs">
         <i class="fas fa-star mr-2"></i>{{score}}
       </span>

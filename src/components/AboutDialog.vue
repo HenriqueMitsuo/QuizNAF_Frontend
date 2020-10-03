@@ -10,7 +10,7 @@
       aria-hidden="true"
     >
       <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="text-center text-white bg-primary modal-content">
+        <div class="text-center bg-primary modal-content">
           <div class="modal-body">
             <h5 class="my-2">SOBRE NÓS</h5>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vitae ex bibendum, posuere turpis at, malesuada tortor. Aenean condimentum bibendum ipsum vitae tincidunt.
@@ -25,7 +25,7 @@
             <img src="@/assets/naf.jpeg" class="mx-auto d-block" width="40%" />
           </div>
           <div class="modal-body">
-            <button type="button" class="btn btn-outline-light" data-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Fechar</button>
           </div>
         </div>
       </div>

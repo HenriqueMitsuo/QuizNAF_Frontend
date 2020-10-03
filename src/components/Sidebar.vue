@@ -20,7 +20,6 @@
       <div class="nav-link">
         <a
           v-on:click="closeNav"
-          class="text-light"
           data-toggle="modal"
           data-target="#exampleModalCenter"
         >
@@ -37,7 +36,7 @@
       </div>
 
       <div class="nav-link mt-4">
-        <button class="btn btn-outline-light btn-lg" style="width: 200px" @click="logOff">
+        <button class="btn btn-primary" style="width: 200px" @click="logOff">
           <i class="fas fa-sign-out-alt mr-3"></i>Sair
         </button>
       </div>
@@ -98,7 +97,7 @@ export default {
 .nav-link > a {
   width: 250px;
   padding: 8px 8px 8px 16px;
-  color: var(--white);
+  color: var(--text-primary);
   font-size: 24px;
   display: block;
   transition: 0.3s;
@@ -106,7 +105,7 @@ export default {
 
 .sidebar .closebtn {
   position: absolute;
-  color: var(--white);
+  color: var(--text-primary);
   top: 0;
   right: 25px;
   font-size: 36px;

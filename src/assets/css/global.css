@@ -1,3 +1,4 @@
+/* ? Color Schemes */
 :root {
   --color-primary: #25282C;
   --color-secondary: #191C20;
@@ -5,8 +6,16 @@
   --text-primary: #ECF0F1;
 }
 
-/* ? BACKGROUND COLOR */
-html, body {
+.light-mode {
+  --color-primary: #DEE4E7;
+  --color-secondary: #ECF0F1;
+  --color-accent: #191C20;
+  --text-primary: #191C20;
+}
+
+
+/* ? BACKGROUND & FONT COLOR*/
+body {
   background-color: var(--color-secondary);
 }
 
@@ -25,10 +34,6 @@ h2 {
 }
 
 /* * INPUT OVERWRITES */
-input[type=radio] {
-  background-color: var(--color-accent);
-}
-
 .input-group-text {
   border: none;
   background-color: var(--color-primary);
@@ -45,6 +50,7 @@ input[type=radio] {
 .form-control:focus {
   background-color: var(--color-primary);
   color: var(--color-accent);
+  box-shadow: 0 0 5px 1px var(--color-accent);
 }
 
 /* * BUTTON OVERWRITES */
@@ -52,4 +58,15 @@ input[type=radio] {
   border: 1px solid var(--color-primary);
   background-color: var(--color-primary);
   color: var(--color-accent);
+}
+
+.btn-outline-light {
+  border: 1px solid var(--text-primary);
+  color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+  border: 1px solid var(--color-accent);
+  background-color: var(--color-accent);
+  color: var(--color-primary);
 }
