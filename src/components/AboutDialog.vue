@@ -11,8 +11,13 @@
     >
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="text-center bg-primary modal-content">
-          <div class="modal-body">
+          <div class="modal-header">
             <h5 class="my-2">SOBRE NÓS</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vitae ex bibendum, posuere turpis at, malesuada tortor. Aenean condimentum bibendum ipsum vitae tincidunt.
           </div>
           <div class="modal-body">
@@ -23,9 +28,6 @@
           </div>
           <div class="modal-body">
             <img src="@/assets/naf.jpeg" class="mx-auto d-block" width="40%" />
-          </div>
-          <div class="modal-body">
-            <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Fechar</button>
           </div>
         </div>
       </div>

@@ -70,11 +70,6 @@ h2 {
   color: var(--color-accent);
 }
 
-.btn-outline-light {
-  border: 1px solid var(--text-primary);
-  color: var(--text-primary);
-}
-
 .btn-secondary:hover {
   border: 1px solid var(--color-accent);
   background-color: var(--color-accent);
