@@ -33,13 +33,13 @@
           <div class="modal-body">
             <button
               type="button"
-              class="btn btn-success mx-2"
+              class="btn btn-danger mx-2"
               data-dismiss="modal"
               @click="deleteQuestion(question.id)"
             >
               Apagar
             </button>
-            <button type="button" class="btn btn-danger mx-2" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-info mx-2" data-dismiss="modal">Cancelar</button>
           </div>
         </div>
       </div>

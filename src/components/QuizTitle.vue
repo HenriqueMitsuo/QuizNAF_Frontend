@@ -5,9 +5,24 @@
         <div class="card-body">
           <h5 class="card-title">{{ quiz.title }}</h5>
           <!-- Visualizar e editar questões -->
-          <button class="btn btn-primary mr-2" @click="editQuestions(quiz.id)">
+          <!-- Se estiver na pagina QuestionList, não mostra essa opção -->
+          <button
+            class="btn btn-primary mr-2"
+            v-if="this.$route.name != 'QuestionList'"
+            @click="editQuestions(quiz.id)"
+          >
             <i class="fas fa-question"></i>
           </button>
+
+          <!-- Ao invés disso, mostrar essa opção, para voltar atrás -->
+          <router-link
+            class="btn btn-primary mr-2"
+            v-if="this.$route.name == 'QuestionList'"
+            :to="{ name: 'Professor' }"
+          >
+            <i class="fas fa-arrow-left"></i>
+          </router-link>
+
           <!-- Editar Quiz (Titulo, Categoria, Descrição...) -->
           <button class="btn btn-warning mx-2" @click="editQuiz(quiz.id)">
             <i class="fas fa-pen"></i>
@@ -45,13 +60,13 @@
           <div class="modal-body">
             <button
               type="button"
-              class="btn btn-success mx-2"
+              class="btn btn-danger mx-2"
               data-dismiss="modal"
               @click="deleteQuiz(quiz.id)"
             >
               Apagar
             </button>
-            <button type="button" class="btn btn-danger mx-2" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-info mx-2" data-dismiss="modal">Cancelar</button>
           </div>
         </div>
       </div>
