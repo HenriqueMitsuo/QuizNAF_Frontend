@@ -9,7 +9,7 @@
         </div>
       </div>
 
-      <h3 class="text-center my-2">Lista de usuários</h3>
+      <h2 class="text-center my-2">Lista de usuários</h2>
     </div>
     <UserList v-for="user in users" :key="user.id" :user="user" />
   </div>

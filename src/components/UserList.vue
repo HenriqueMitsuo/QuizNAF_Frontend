@@ -1,6 +1,6 @@
 <template>
   <div class="col-12 my-3">
-    <div class="card mx-0">
+    <div class="card bg-primary mx-0">
       <div class="card-body">
         <h5 class="card-title">{{ user.email }}</h5>
         <p class="card-text" v-if="changeRole.role == 0">Usuário Comum</p>
