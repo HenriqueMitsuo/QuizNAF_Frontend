@@ -29,7 +29,7 @@ export default {
     };
   },
   methods: {
-    updateRole: async function (id, newRole) {
+    async updateRole(id, newRole) {
       //Se o role novo é o mesmo que o atual, não troca
       if (this.changeRole.role == newRole) {
         this.$toasted.global.changeRole_error();

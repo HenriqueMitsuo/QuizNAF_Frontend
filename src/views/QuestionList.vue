@@ -49,15 +49,15 @@ export default {
     this.loading = false;
   },
   methods: {
-    LoadQuestions: async function () {
+    async LoadQuestions() {
       this.questionsData = await this.questionsService.queryFilter({
         quiz_id: this.quiz_id,
       });
     },
-    LoadQuiz: async function () {
+    async LoadQuiz() {
       this.quiz = await this.quizService.queryOne(this.quiz_id);
     },
-    createQuestion: function (id) {
+    createQuestion (id) {
       this.$router.push({ name: "CreateQuestion", params: { id: id } });
     },
   },

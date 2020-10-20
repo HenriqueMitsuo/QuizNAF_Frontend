@@ -82,7 +82,7 @@ export default {
     this.fetchQuestions();
   },
   methods: {
-    fetchQuestions: async function() {
+    async fetchQuestions() {
       let fetchQuestions = await this.questionService.queryFilter({ quiz_id: this.$route.params.id });
 
       fetchQuestions.forEach(qst => {
@@ -97,7 +97,7 @@ export default {
         this.loading = false;
       });
     },
-    validateQuestion: function () {
+    validateQuestion() {
       this.formBlock = true;
       if (this.selectedAnswer == 0) { // 0 sempre será o id de alternativa correta
         this.answerValidation = true;
@@ -108,7 +108,7 @@ export default {
         this.showSheet = true;
       }
     },
-    nextQuestion: function () {
+    nextQuestion() {
       this.formBlock = false;
       this.showSheet = false;
       this.selectedAnswer = null;

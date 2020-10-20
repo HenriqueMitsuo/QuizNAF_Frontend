@@ -101,13 +101,13 @@ export default {
     };
   },
   methods: {
-    createQuestion: async function () {
+    async createQuestion() {
       await this.questionService.createOne(this.QuestionData);
       this.$router.push({ name: "QuestionList", params: { id: this.QuestionData.quiz_id } });
       this.$toasted.global.createQuestion_success();
       //Redirecionar para pagina de lista de questões anterior
     },
-    voltar: function () {
+    voltar() {
       this.$router.push({ name: "QuestionList", params: { id: this.$route.params.id } });
       //Redireciona para a pagina de lista de questões anterior
     },

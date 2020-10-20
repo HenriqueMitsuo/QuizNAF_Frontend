@@ -195,7 +195,7 @@ export default {
     this.fillModel(); //Preenche os inputs e algumas variaveis com os dados do token
   },
   methods: {
-    fillModel: function () {
+    fillModel() {
       const token = localStorage.getItem("token");
       var decoded = decode(token);
 
@@ -210,7 +210,7 @@ export default {
       this.User.educationCourse = decoded.educationCourse;
       this.User.role = decoded.role;
     },
-    changePass: function () {
+    changePass() {
       //Muda a visualização entre o formulário de senha ou dos dados
       if (this.changePassword == false) {
         this.changePassword = true;
@@ -218,7 +218,7 @@ export default {
         this.changePassword = false;
       }
     },
-    updateUser: async function () {
+    async updateUser() {
       try {
         await this.userService.updateOne(this.id, this.User);
         this.$toasted.global.updateprofile_success();
@@ -227,7 +227,7 @@ export default {
         this.$toasted.global.updateprofile_error();
       }
     },
-    updatePassword: async function () {
+    async updatePassword() {
       //Se novas senhas conferem
       if (this.Password.password == this.RepeatnewPassword) {
         //Senhas conferem

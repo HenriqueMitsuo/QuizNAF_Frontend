@@ -105,15 +105,15 @@ export default {
     this.autoFill(this.question_id); //Auto preenche os dados
   },
   methods: {
-    autoFill: async function (id) {
+    async autoFill(id) {
       this.QuestionData = await this.questionService.queryOne(id);
     },
-    updateQuestion: async function () {
+    async updateQuestion() {
       await this.questionService.updateOne(this.question_id, this.QuestionData);
       this.$router.push({ name: "QuestionList", params: { id: this.QuestionData.quiz_id } });
       this.$toasted.global.updateprofile_success(); //Vai escrever na tela "Dados atualizados com sucesso"
     },
-    back: function () {
+    back() {
       this.$router.push({ name: "QuestionList", params: { id: this.QuestionData.quiz_id } });
     },
   },

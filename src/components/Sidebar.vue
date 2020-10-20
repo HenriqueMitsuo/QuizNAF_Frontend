@@ -67,17 +67,17 @@ export default {
     this.getRole(); //Pega o atributo role do usuário
   },
   methods: {
-    openNav: function () {
+    openNav() {
       this.collapsed = false;
     },
-    closeNav: function () {
+    closeNav() {
       this.collapsed = true;
     },
-    logOff: function () {
+    logOff() {
       signOut();
       this.$router.push({ name: 'Login' });
     },
-    getRole: async function () {
+    async getRole() {
       this.role = await checkRole();
     },
     changeTheme() {

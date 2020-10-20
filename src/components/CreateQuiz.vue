@@ -98,7 +98,7 @@ export default {
     };
   },
   methods: {
-    createQuiz: async function () {
+    async createQuiz() {
       await this.quizService.createOne(this.QuizData);
       this.$router.push({ name: "Professor" });
       this.$toasted.global.createQuiz_success();

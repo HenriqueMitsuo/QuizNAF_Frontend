@@ -87,16 +87,16 @@ export default {
     };
   },
   methods: {
-    editQuestions: function (id) {
+    editQuestions(id) {
       this.$router.push({ name: "QuestionList", params: { id: id } });
     },
-    goToQuiz: function (id) {
+    goToQuiz(id) {
       this.$router.push({ name: "Question", params: { id: id } });
     },
-    editQuiz: function (id) {
+    editQuiz(id) {
       this.$router.push({ name: "EditQuiz", params: { id: id } });
     },
-    deleteQuiz: async function (id) {
+    async deleteQuiz(id) {
       try {
         await this.quizService.deleteOne(id);
         this.$toasted.global.delete_success();

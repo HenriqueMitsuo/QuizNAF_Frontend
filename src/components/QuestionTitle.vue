@@ -66,10 +66,10 @@ export default {
   },
   methods: {
     //A criar pagina para editar as informações da questão
-    editQuestion: function (id) {
+    editQuestion(id) {
       this.$router.push({ name: "EditQuestion", params: { id: id } });
     },
-    deleteQuestion: async function (id) {
+    async deleteQuestion(id) {
       await this.questionsService.deleteOne(id);
       this.$toasted.global.delete_success();
       this.$router.go(this.$router.currentRoute); //Recarrega mesma rota para refazer a query

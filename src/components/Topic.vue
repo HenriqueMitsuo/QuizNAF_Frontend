@@ -14,7 +14,7 @@
 export default {
   props: [ 'quiz' ],
   methods: {
-    goToQuiz: function(id) {
+    goToQuiz(id) {
       this.$router.push({ name: 'Question', params: { id: id } })
     }
   }

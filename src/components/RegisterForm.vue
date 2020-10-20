@@ -183,7 +183,7 @@ export default {
     };
   },
   methods: {
-    RegisterUser: async function () {
+    async RegisterUser() {
       if (this.User.password == this.passwordRepeat) {
         await this.userService.createUser(this.User);
         this.$router.push({ name: "Login" });

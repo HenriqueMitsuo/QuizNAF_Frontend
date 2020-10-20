@@ -13,7 +13,7 @@ export default {
     name: 'question-alerts',
     props: ['showSheet', 'answerValidation'],
     methods: {
-        nextQuestion: function () {
+        nextQuestion() {
             this.$emit('nextQuestion');
         }
     }

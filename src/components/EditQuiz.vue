@@ -101,10 +101,10 @@ export default {
     this.autoFill(this.quiz_id); //Auto preenche os dados
   },
   methods: {
-    autoFill: async function (id) {
+    async autoFill(id) {
       this.QuizData = await this.quizService.queryOne(id);
     },
-    updateQuiz: async function () {
+    async updateQuiz() {
       await this.quizService.updateOne(this.quiz_id, this.QuizData);
       this.$router.push({ name: "Professor" });
       this.$toasted.global.updateprofile_success(); //Vai escrever na tela "Dados atualizados com sucesso"
