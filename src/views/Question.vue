@@ -50,7 +50,9 @@
         <QuestionAlerts 
           v-on:nextQuestion="nextQuestion" 
           :showSheet="showSheet" 
-          :answerValidation="answerValidation" />
+          :answerValidation="answerValidation" 
+          :lastQuestion="this.lastQuestion"
+          />
       </transition>
     </div>
 </template>
@@ -75,7 +77,8 @@ export default {
       selectedAnswer: null,
       showSheet: false,
       loading: true,
-      formBlock: false
+      formBlock: false,
+      lastQuestion: false, //Define se está na ultima questão
     }
   },
   async mounted() {
@@ -114,8 +117,11 @@ export default {
       this.selectedAnswer = null;
       this.answerValidation = null;
 
-      if (this.currentQuestion === this.questions.length) {
-        console.log("Fim do questionario")
+      //Verifica se a proxima será a ultima questão
+      if ((this.currentQuestion+2) == this.questions.length) { 
+        console.log("Ultima questão");
+        this.lastQuestion = true; 
+        this.currentQuestion++;
       } else {
         console.log("+ questionario");
         this.currentQuestion++;
