@@ -1,5 +1,7 @@
 # frontend
 
+### [Project link](https://quiznafpreview.netlify.app/)
+
 ## Project setup
 ```
 npm install
